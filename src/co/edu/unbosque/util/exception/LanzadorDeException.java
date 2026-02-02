@@ -31,12 +31,6 @@ public class LanzadorDeException {
 			throw new CaracterInvalidoException();
 		}
 	}
-	public static void verificarCaracterInvalidoHermafrodita(char c) throws CaracterInvalidoHermafroditaException {
-		c = Character.toUpperCase(c);
-		if (c != 'M' && c != 'F' && c != 'H') {
-			throw new CaracterInvalidoHermafroditaException();
-		}
-	}
 
 	public static void verificarStringInvalido(String s) throws StringInvalidoException{
 		if (!s.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
