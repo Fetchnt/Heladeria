@@ -12,24 +12,24 @@ import java.util.Scanner;
 
 public class FileHandler {
 
-	// TEXTO //
-	
+	// Archivos de texto
 	public static File archivo;
 	public static PrintWriter escritor;
 	public static Scanner lector;
-	
-	// SERIALIZADO //
-	
+
+	// Serializado: capacidad de confertir un objeto a material binario para poder
 	public static FileInputStream fis;
 	public static ObjectInputStream ois;
 	public static FileOutputStream fos;
 	public static ObjectOutputStream oos;
-	
-	 // PROPIEDADES //
-	
+
+	// Propiedades
 	public static Properties prop;
-	
-	public static void escribirEnArchivoTexto (String url, String contenido) {
+
+	// Es obligatorio que exista el archivo serializado antes de leer
+
+	public static void escribirEnArchivoTexto(String url, String contenido) {
+		// Verificar url del archivo
 		try {
 			archivo = new File(url);
 			if (!archivo.exists()) {
@@ -37,55 +37,61 @@ public class FileHandler {
 			}
 			escritor = new PrintWriter(archivo);
 			escritor.println(contenido);
+			// solo un aplicativo al tiempo puede tener un archivo abierto al tiempo
 			escritor.close();
 		} catch (IOException e) {
-			System.out.println("Error al crear y escribir el archivo de texto");
+			System.err.println("Error al crear y escribir el archivo de texto.");
 			System.out.println(e.getMessage());
+			// e.printStackTrace();
 		}
-	}	
+	}
 
-	public static String leerDesdeArchivoDeTexto(String url) {
+	public static String leerDesdeArchivoTexto(String url) {
 		try {
 			archivo = new File(url);
 			if (!archivo.exists()) {
 				archivo.createNewFile();
 			}
+
 			lector = new Scanner(archivo);
 			String contenido = "";
-			while(lector.hasNext()) {
+			while (lector.hasNext()) { // Verifica que la siguiente linea tenga contenido y lo continua leyendo
 				contenido += lector.nextLine() + "\n";
-				}
+			}
 			lector.close();
 			return contenido;
+
 		} catch (IOException e) {
-			System.out.println("Error al crear y escribir el archivo de texto");
+			System.err.println("Error al leer el archivo de texto.");
 			System.out.println(e.getMessage());
-		
+			// e.printStackTrace();
 		}
 		return null;
 	}
-	
+
 	public static void escribirEnArchivoSerializado(String url, Object contenido) {
 		try {
-		archivo = new File(url);
-		if (!archivo.exists()) {
+			archivo = new File(url);
+			if (!archivo.exists()) {
 				archivo.createNewFile();
-		}
-		fos = new FileOutputStream(archivo);
-		oos = new ObjectOutputStream(fos);
-		oos.writeObject(contenido);
-		// PRIMERO SE CIERRA EL OBJECT Y LUEGO EL FILE //
-		oos.close();
-		fos.close();
-		} catch (IOException e) {
-			System.out.println("Error al crear el archivo");
-			System.out.println(e.getMessage());
-			e.printStackTrace();
 			}
+			fos = new FileOutputStream(archivo);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(contenido);
+			// primero cerrar object y despues file
+			oos.close();
+			fos.close();
+
+		} catch (IOException e) {
+			System.err.println("Error al escribir el archivo serializado.");
+			e.printStackTrace();
+
+			// Se indica a las clases padres e hijas que tienen la capacidad de
+			// serializacion, y todo se hace en el modelo
 		}
-	
+	}
+
 	public static Object leerDesdeArchivoSerializado(String url) {
-		
 		try {
 			archivo = new File(url);
 			if (!archivo.exists()) {
@@ -94,34 +100,36 @@ public class FileHandler {
 			fis = new FileInputStream(archivo);
 			ois = new ObjectInputStream(fis);
 			Object contenido = ois.readObject();
-			// PRIMERO SE CIERRA EL OBJECT Y LUEGO EL FILE //
+
 			ois.close();
 			fis.close();
 			return contenido;
+
 		} catch (IOException e) {
-			System.out.println("Error al crear el archivo");
-			System.out.println(e.getMessage());
+			System.err.println("Error al leer el archivo serializado.");
+			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			System.out.println("Error al deserializar archivo");
-			System.out.println(e.getMessage());
-			}		
+			System.err.println("Error al deserializar los datos del usuario.");
+			e.printStackTrace();
+		}
 		return null;
-		}
-	public static Properties cargarArchivoDePropiedades(String url) {
-			try {
-				archivo = new File(url);
-				if (!archivo.exists()) {
-					archivo.createNewFile();
-				}
-				prop = new Properties();
-				prop.load(new FileInputStream(archivo));
-				return prop;				
-			} catch (IOException e) {
-				System.out.println("Error al crear el archivo");
-				System.out.println(e.getMessage());
-			}
-			// LAS PROPIEDADES SE CARGAN EN EL CONTROLADOR, NO EN EL DAO // 
-			return null; // SI LLEGA NULO EN ALGUN MOMENTO SE ESTALLO //  		
-		}
-	
 	}
+
+	public static Properties cargarArchivoPropiedades(String url) {
+		try {
+			archivo = new File(url);
+			if (!archivo.exists()) {
+				archivo.createNewFile();
+			}
+			prop = new Properties();
+			prop.load(new FileInputStream(archivo));
+			return prop;
+
+		} catch (IOException e) {
+			System.err.println("Error al cargar el archivo de propiedades.");
+			e.printStackTrace();
+		}
+		// LAS PROPIEDADES SE CARGAN EN EL CONTROLADOR, NO EN EL DAO
+		return null;
+	}
+}

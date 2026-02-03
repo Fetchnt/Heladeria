@@ -1,7 +1,6 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import co.edu.unbosque.model.Helado; 
 import co.edu.unbosque.model.HeladoDTO; 
@@ -33,4 +32,23 @@ public class DataMapper {
 		}
 		return entityList;
 	}
+	
+	// CONVERTIDORES DE HELADODTO A HELADO/ HELADO A HELADODTO
+		public static Helado convertirHeladoDTOaHelado(HeladoDTO dto) {
+			Helado entity = new Helado();
+			entity.setNombreProducto(dto.getNombreProducto());
+			entity.setCantidadProducto(dto.getCantidadProducto());
+			entity.setPrecioProducto(dto.getPrecioProducto());
+			entity.setSaborBolas(dto.getSaborBolas());
+			return entity;
+		}
+
+		public static HeladoDTO convertirHeladoAHeladoDTO(Helado entity) {
+			HeladoDTO dto = new HeladoDTO();
+			dto.setNombreProducto(entity.getNombreProducto());
+			dto.setCantidadProducto(entity.getCantidadProducto());
+			dto.setPrecioProducto(entity.getPrecioProducto());
+			dto.setSaborBolas(entity.getSaborBolas());
+			return dto;
+		}
 }

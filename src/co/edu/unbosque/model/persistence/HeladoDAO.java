@@ -2,45 +2,44 @@ package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
 
+import co.edu.unbosque.model.Helado;
 import co.edu.unbosque.model.HeladoDTO;
 
-public class HeladoDAO implements DAO<HeladoDTO>{
+public class HeladoDAO implements DAO<HeladoDTO> {
 
-	public ArrayList<HeladoDTO> listaHeladoDTO;
+	private ArrayList<HeladoDTO> listaHelado;
 	private final String SERIAL_FILE_NAME = "helado.bin";
-	
-	
+
 	public HeladoDAO() {
-		listaHeladoDTO = new ArrayList<>();
+		listaHelado = new ArrayList<HeladoDTO>();
 		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
-	public void crear(HeladoDTO entity) {
-		listaHeladoDTO.add(entity);
-		DataMapper.convertirListaHeladoDTOaListaDTO(listaHeladoDTO);
+	public void crear(HeladoDTO newData) {
+		Helado entity = DataMapper.convertirHeladoDTOaHelado(newData);
+		listaHelado.add(newData);
+		DataMapper.convertirListaHeladoDTOaListaDTO(listaHelado);
 		escribirArchivoSerializado();
 	}
 
-	private String contenido = "";
 	@Override
 	public String mostrarDatos() {
-		contenido = "";
-		for (int i = 0; i < listaHeladoDTO.size(); i++) {
-			contenido += i+1 + "." + listaHeladoDTO.get(i).toString() + "\n";
+		StringBuilder content = new StringBuilder();
+		ArrayList<Helado> entities = DataMapper.convertirListaHeladoDTOaListaDTO(listaHelado);
+
+		for (int i = 0; i < entities.size(); i++) {
+			content.append(i).append(". ").append(entities.get(i).toString()).append("\n");
 		}
-		//escribirDesdeArchivoDeTexto();
-		escribirArchivoSerializado();
-		return contenido;
+		return content.toString();
 	}
 
 	@Override
 	public boolean eliminar(int indice) {
-		if (indice < 0 || indice >= listaHeladoDTO.size()) {
+		if (indice < 0 || indice >= listaHelado.size()) {
 			return false;
 		} else {
-			listaHeladoDTO.remove(indice);
-			DataMapper.convertirListaHeladoDTOaListaDTO(listaHeladoDTO);
+			listaHelado.remove(indice);
 			// escribirDesdeArchivoDeTexto();
 			escribirArchivoSerializado();
 			return true;
@@ -48,43 +47,32 @@ public class HeladoDAO implements DAO<HeladoDTO>{
 	}
 
 	@Override
-	public boolean eliminar(HeladoDTO objetoAEliminar) {
-		DataMapper.convertirListaHeladoDTOaListaDTO(listaHeladoDTO);
-		return listaHeladoDTO.remove(objetoAEliminar);
-	}
-
-	@Override
 	public boolean actualizar(int indice, HeladoDTO datoActualizado) {
-		if (indice < 0 || indice >= listaHeladoDTO.size()) {
+		if (indice < 0 || indice >= listaHelado.size()) {
 			return false;
 		} else {
-			listaHeladoDTO.set(indice, datoActualizado);
-			DataMapper.convertirListaHeladoDTOaListaDTO(listaHeladoDTO);
+			Helado entity = DataMapper.convertirHeladoDTOaHelado(datoActualizado);
+			listaHelado.set(indice, datoActualizado);
+			DataMapper.convertirListaHeladoDTOaListaDTO(listaHelado);
 			escribirArchivoSerializado();
 			return true;
 		}
 	}
 
 	@Override
-	public int contar() {
-		return listaHeladoDTO.size();
-	}
-
-	@Override
 	public void cargarDesdeArchivoSerializado() {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
-			listaHeladoDTO = (ArrayList<HeladoDTO>) contenido;
+			listaHelado = (ArrayList<HeladoDTO>) contenido;
 		} else {
-			listaHeladoDTO = new ArrayList<HeladoDTO>();
+			listaHelado = new ArrayList<HeladoDTO>();
 		}
 	}
 
 	@Override
 	public void escribirArchivoSerializado() {
-		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaHeladoDTO);
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaHelado);
 
 	}
-
 
 }
