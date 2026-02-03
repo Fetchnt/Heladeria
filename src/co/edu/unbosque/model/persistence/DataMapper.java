@@ -1,7 +1,6 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import co.edu.unbosque.model.Helado; 
 import co.edu.unbosque.model.HeladoDTO; 
@@ -21,7 +20,7 @@ public class DataMapper {
 		}
 		return dtoList;
 	}
-	public static ArrayList<Helado> convertirListaHeladoDTOaListaDTO(ArrayList<HeladoDTO> dtoList) {
+	public static ArrayList<Helado> convertirListaHeladoDTOaListaHelado(ArrayList<HeladoDTO> dtoList) {
 		ArrayList<Helado> entityList = new ArrayList<Helado>();
 		for(HeladoDTO heladoDTO : dtoList) {
 			Helado entity = new Helado();

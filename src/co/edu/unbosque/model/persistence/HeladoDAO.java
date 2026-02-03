@@ -18,7 +18,7 @@ public class HeladoDAO implements DAO<HeladoDTO>{
 	@Override
 	public void crear(HeladoDTO entity) {
 		listaHeladoDTO.add(entity);
-		DataMapper.convertirListaHeladoDTOaListaDTO(listaHeladoDTO);
+		DataMapper.convertirListaHeladoDTOaListaHelado(listaHeladoDTO);
 		escribirArchivoSerializado();
 	}
 
@@ -40,7 +40,7 @@ public class HeladoDAO implements DAO<HeladoDTO>{
 			return false;
 		} else {
 			listaHeladoDTO.remove(indice);
-			DataMapper.convertirListaHeladoDTOaListaDTO(listaHeladoDTO);
+			DataMapper.convertirListaHeladoDTOaListaHelado(listaHeladoDTO);
 			// escribirDesdeArchivoDeTexto();
 			escribirArchivoSerializado();
 			return true;
@@ -49,7 +49,7 @@ public class HeladoDAO implements DAO<HeladoDTO>{
 
 	@Override
 	public boolean eliminar(HeladoDTO objetoAEliminar) {
-		DataMapper.convertirListaHeladoDTOaListaDTO(listaHeladoDTO);
+		DataMapper.convertirListaHeladoDTOaListaHelado(listaHeladoDTO);
 		return listaHeladoDTO.remove(objetoAEliminar);
 	}
 
@@ -59,7 +59,7 @@ public class HeladoDAO implements DAO<HeladoDTO>{
 			return false;
 		} else {
 			listaHeladoDTO.set(indice, datoActualizado);
-			DataMapper.convertirListaHeladoDTOaListaDTO(listaHeladoDTO);
+			DataMapper.convertirListaHeladoDTOaListaHelado(listaHeladoDTO);
 			escribirArchivoSerializado();
 			return true;
 		}
