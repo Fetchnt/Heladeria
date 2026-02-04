@@ -24,18 +24,32 @@ public class Controlador implements ActionListener {
 		vf.getvInicio().getBtnAccess().addActionListener(this);
 		vf.getvInicio().getBtnAccess().setActionCommand("boton_acceso");
 
+		vf.getvInicio().getBtnExit().addActionListener(this);
+		vf.getvInicio().getBtnExit().setActionCommand("boton_salir");
+
 	}
 
 	public void run() {
 		vf.getvInicio().setVisible(true);
+		vf.cargarPropiedades(prop);
+		asignarListeners();
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String alias = e.getActionCommand();
+		
 		switch (alias) {
 
+		case "boton_salir": {
+			System.exit(0);
+			break;
 		}
+		
+		
+
+		} // Cierra el switch
 
 	}
 
