@@ -62,8 +62,7 @@ public class StartWindow extends JFrame {
 		// -------- PANEL OPCIONES --------
 		panelOptions = new JPanel();
 		panelOptions.setBounds(280, 190, 340, 320);
-		panelHeader.setOpaque(false);
-		panelOptions.setOpaque(false);
+		panelOptions.setBackground(Color.decode("#FFFFFF"));
 		panelOptions.setLayout(null);
 		add(panelOptions);
 
