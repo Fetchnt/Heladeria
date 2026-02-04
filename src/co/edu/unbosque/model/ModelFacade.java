@@ -1,21 +1,47 @@
 package co.edu.unbosque.model;
 
+import co.edu.unbosque.model.persistence.CrepeDAO;
 import co.edu.unbosque.model.persistence.HeladoDAO;
+import co.edu.unbosque.model.persistence.WaffleDAO;
 public class ModelFacade {
 
-	private HeladoDAO heladoDAO;
+	private HeladoDAO hDAO;
+	private WaffleDAO wDAO; 
+	private CrepeDAO cDAO;
 
 	public ModelFacade() {
-		heladoDAO = new HeladoDAO();
+		hDAO = new HeladoDAO();
+		wDAO = new WaffleDAO();
+		cDAO = new CrepeDAO();
 	}
 
-	public HeladoDAO getHeladoDAO() {
-		return heladoDAO;
+	public HeladoDAO gethDAO() {
+		return hDAO;
 	}
 
-	public void setHeladoDAO(HeladoDAO heladoDAO) {
-		this.heladoDAO = heladoDAO;
+	public void sethDAO(HeladoDAO hDAO) {
+		this.hDAO = hDAO;
 	}
+
+	public WaffleDAO getwDAO() {
+		return wDAO;
+	}
+
+	public void setwDAO(WaffleDAO wDAO) {
+		this.wDAO = wDAO;
+	}
+
+	public CrepeDAO getcDAO() {
+		return cDAO;
+	}
+
+	public void setcDAO(CrepeDAO cDAO) {
+		this.cDAO = cDAO;
+	}
+	
+	
+
+	
 	
 	
 	
