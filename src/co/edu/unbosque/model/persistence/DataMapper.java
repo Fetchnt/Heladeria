@@ -130,7 +130,7 @@ public class DataMapper {
 		dto.setTipoDeWaffle(entity.getTipoDeWaffle());
 		return dto;
 	}
-	
+
 	// CONVERTIDORES DE CREPEDTO A CREPE / CREPE A CREPEDTO
 	public static Crepe convertirCrepeDTOaCrepe(CrepeDTO dto) {
 		Crepe entity = new Crepe();
@@ -151,6 +151,5 @@ public class DataMapper {
 		dto.setSalsa(entity.getSalsa());
 		return dto;
 	}
-
 
 }

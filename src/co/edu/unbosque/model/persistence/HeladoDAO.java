@@ -11,7 +11,7 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 	private final String SERIAL_FILE_NAME = "helado.bin";
 
 	public HeladoDAO() {
-		listaHelado = new ArrayList<HeladoDTO>();
+		listaHelado = new ArrayList<>();
 		cargarDesdeArchivoSerializado();
 	}
 
@@ -29,7 +29,7 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 		ArrayList<Helado> entities = DataMapper.convertirListaHeladoDTOaListaDTO(listaHelado);
 
 		for (int i = 0; i < entities.size(); i++) {
-			content.append(i+1).append(". ").append(entities.get(i).toString()).append("\n");
+			content.append(i + 1).append(". ").append(entities.get(i).toString()).append("\n");
 		}
 		return content.toString();
 	}
@@ -73,6 +73,14 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 	public void escribirArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaHelado);
 
+	}
+
+	public ArrayList<HeladoDTO> getListaHelado() {
+		return listaHelado;
+	}
+
+	public void setListaHelado(ArrayList<HeladoDTO> listaHelado) {
+		this.listaHelado = listaHelado;
 	}
 
 }
