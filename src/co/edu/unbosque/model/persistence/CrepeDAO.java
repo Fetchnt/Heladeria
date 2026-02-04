@@ -4,34 +4,38 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.model.Crepe;
 import co.edu.unbosque.model.CrepeDTO;
+import co.edu.unbosque.model.Crepe;
 
 public class CrepeDAO implements DAO<CrepeDTO> {
 
-	private ArrayList<CrepeDTO> listaCrepe;
-	private final String SERIAL_FILE_NAME = "crepe.bin";
+	private ArrayList<Crepe> listaCrepe;
+	private final String SERIAL_FILE_NAME = "Crepe.bin";
 
 	public CrepeDAO() {
-		listaCrepe = new ArrayList<CrepeDTO>();
+		listaCrepe = new ArrayList<>();
 		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void crear(CrepeDTO newData) {
 		Crepe entity = DataMapper.convertirCrepeDTOaCrepe(newData);
-		listaCrepe.add(newData);
-		DataMapper.convertirListaCrepeDTOAListaCrepe(listaCrepe);
+		listaCrepe.add(entity);
 		escribirArchivoSerializado();
 	}
 
+	private String contenido;
+	private int i;
+
 	@Override
 	public String mostrarDatos() {
-		StringBuilder content = new StringBuilder();
-		ArrayList<Crepe> entities = DataMapper.convertirListaCrepeDTOAListaCrepe(listaCrepe);
+		contenido = "";
+		i = 1;
+		listaCrepe.forEach((Crepe) -> {
+			contenido += "| " + i + 1 + " |" + Crepe.toString();
+			i++;
+		});
 
-		for (int i = 0; i < entities.size(); i++) {
-			content.append(i + 1).append(". ").append(entities.get(i).toString()).append("\n");
-		}
-		return content.toString();
+		return contenido;
 	}
 
 	@Override
@@ -51,8 +55,7 @@ public class CrepeDAO implements DAO<CrepeDTO> {
 			return false;
 		} else {
 			Crepe entity = DataMapper.convertirCrepeDTOaCrepe(datoActualizado);
-			listaCrepe.set(indice, datoActualizado);
-			DataMapper.convertirListaCrepeDTOAListaCrepe(listaCrepe);
+			listaCrepe.set(indice, entity);
 			escribirArchivoSerializado();
 			return true;
 		}
@@ -62,14 +65,33 @@ public class CrepeDAO implements DAO<CrepeDTO> {
 	public void cargarDesdeArchivoSerializado() {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
-			listaCrepe = (ArrayList<CrepeDTO>) contenido;
+			listaCrepe = (ArrayList<Crepe>) contenido;
 		} else {
-			listaCrepe = new ArrayList<CrepeDTO>();
+			listaCrepe = new ArrayList<>();
 		}
 	}
 
 	@Override
 	public void escribirArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaCrepe);
+
+	}
+
+	public ArrayList<Crepe> getListaCrepe() {
+		return listaCrepe;
+	}
+
+	public void setListaCrepe(ArrayList<Crepe> listaCrepe) {
+		this.listaCrepe = listaCrepe;
+	}
+
+	public StringBuilder escribirDesdeArchivoTextoMixto() {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		for (Crepe Crepe : listaCrepe) {
+			sb.append(Crepe.getNombreProducto() + ";" + Crepe.getTipoDeCrepe() + Crepe.getPrecioProducto()
+					+ Crepe.getCantidadProducto() + ";" + "\n");
+		}
+		return sb;
 	}
 }

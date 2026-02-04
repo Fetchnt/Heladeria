@@ -7,7 +7,7 @@ import co.edu.unbosque.model.HeladoDTO;
 
 public class HeladoDAO implements DAO<HeladoDTO> {
 
-	private ArrayList<HeladoDTO> listaHelado;
+	private ArrayList<Helado> listaHelado;
 	private final String SERIAL_FILE_NAME = "helado.bin";
 
 	public HeladoDAO() {
@@ -18,20 +18,23 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 	@Override
 	public void crear(HeladoDTO newData) {
 		Helado entity = DataMapper.convertirHeladoDTOaHelado(newData);
-		listaHelado.add(newData);
-		DataMapper.convertirListaHeladoDTOaListaDTO(listaHelado);
+		listaHelado.add(entity);
 		escribirArchivoSerializado();
 	}
 
+	private String contenido;
+	private int i;
+
 	@Override
 	public String mostrarDatos() {
-		StringBuilder content = new StringBuilder();
-		ArrayList<Helado> entities = DataMapper.convertirListaHeladoDTOaListaDTO(listaHelado);
+		contenido = "";
+		i = 1;
+		listaHelado.forEach((Helado) -> {
+			contenido += "| " + i+1 + " |" + Helado.toString();
+			i++;
+		});
 
-		for (int i = 0; i < entities.size(); i++) {
-			content.append(i + 1).append(". ").append(entities.get(i).toString()).append("\n");
-		}
-		return content.toString();
+		return contenido;
 	}
 
 	@Override
@@ -40,7 +43,6 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 			return false;
 		} else {
 			listaHelado.remove(indice);
-			// escribirDesdeArchivoDeTexto();
 			escribirArchivoSerializado();
 			return true;
 		}
@@ -52,8 +54,7 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 			return false;
 		} else {
 			Helado entity = DataMapper.convertirHeladoDTOaHelado(datoActualizado);
-			listaHelado.set(indice, datoActualizado);
-			DataMapper.convertirListaHeladoDTOaListaDTO(listaHelado);
+			listaHelado.set(indice, entity);
 			escribirArchivoSerializado();
 			return true;
 		}
@@ -63,9 +64,9 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 	public void cargarDesdeArchivoSerializado() {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
-			listaHelado = (ArrayList<HeladoDTO>) contenido;
+			listaHelado = (ArrayList<Helado>) contenido;
 		} else {
-			listaHelado = new ArrayList<HeladoDTO>();
+			listaHelado = new ArrayList<>();
 		}
 	}
 
@@ -75,12 +76,22 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 
 	}
 
-	public ArrayList<HeladoDTO> getListaHelado() {
+	public ArrayList<Helado> getListaHelado() {
 		return listaHelado;
 	}
 
-	public void setListaHelado(ArrayList<HeladoDTO> listaHelado) {
+	public void setListaHelado(ArrayList<Helado> listaHelado) {
 		this.listaHelado = listaHelado;
 	}
-
+	
+	
+	public StringBuilder escribirDesdeArchivoTextoMixto() {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		for (Helado Helado : listaHelado) {
+			sb.append(Helado.getNombreProducto() + ";" + Helado.getSaborBolas() + Helado.getPrecioProducto()
+					+ Helado.getCantidadProducto() + ";" + "\n");
+		}
+		return sb;
+	}
 }

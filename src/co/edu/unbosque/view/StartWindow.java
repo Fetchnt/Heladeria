@@ -14,6 +14,8 @@ public class StartWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
+	private Properties prop;
+
 	private JPanel panelHeader;
 	private JPanel panelOptions;
 
@@ -32,6 +34,12 @@ public class StartWindow extends JFrame {
 	private JComboBox<String> cbLanguage;
 
 	public StartWindow() {
+		initializeComponents();
+		setVisible(false);
+	}
+
+	public StartWindow(Properties prop) {
+		setProp(prop);
 		initializeComponents();
 		setVisible(false);
 	}
@@ -77,7 +85,7 @@ public class StartWindow extends JFrame {
 		lRoleHint.setFont(new Font("Noto Sans", Font.PLAIN, 14));
 		panelOptions.add(lRoleHint);
 
-		cbRole = new JComboBox<>(new String[] { "Cliente", "Servidor" });
+		cbRole = new JComboBox<>(new String[] { "Cliente" });
 		cbRole.setBounds(30, 90, 280, 35);
 		cbRole.setFont(new Font("Noto Sans", Font.PLAIN, 15));
 		panelOptions.add(cbRole);
@@ -87,7 +95,7 @@ public class StartWindow extends JFrame {
 		lLanguage.setFont(new Font("Noto Sans", Font.PLAIN, 14));
 		panelOptions.add(lLanguage);
 
-		cbLanguage = new JComboBox<>(new String[] { "Español", "English", "Português", "Français" });
+		cbLanguage = new JComboBox<>(new String[] { "Español"/* , "English", "Português", "Français" */ });
 		cbLanguage.setBounds(30, 165, 280, 35);
 		cbLanguage.setFont(new Font("Noto Sans", Font.PLAIN, 15));
 		panelOptions.add(cbLanguage);
@@ -124,7 +132,9 @@ public class StartWindow extends JFrame {
 		cbRole.addItem(prop.getProperty("heladeria.start.role.client"));
 		cbRole.addItem(prop.getProperty("heladeria.start.role.admin"));
 	}
+	
 
+	
 	public JPanel getPanelHeader() {
 		return panelHeader;
 	}
@@ -205,4 +215,13 @@ public class StartWindow extends JFrame {
 		this.cbLanguage = cbLanguage;
 	}
 
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+	}
+	
+	
 }

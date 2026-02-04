@@ -7,31 +7,34 @@ import co.edu.unbosque.model.WaffleDTO;
 
 public class WaffleDAO implements DAO<WaffleDTO> {
 
-	private ArrayList<WaffleDTO> listaWaffle;
-	private final String SERIAL_FILE_NAME = "waffle.bin";
+	private ArrayList<Waffle> listaWaffle;
+	private final String SERIAL_FILE_NAME = "Waffle.bin";
 
 	public WaffleDAO() {
-		listaWaffle = new ArrayList<WaffleDTO>();
+		listaWaffle = new ArrayList<>();
 		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void crear(WaffleDTO newData) {
 		Waffle entity = DataMapper.convertirWaffleDTOaWaffle(newData);
-		listaWaffle.add(newData);
-		DataMapper.convertirListaWaffleDTOAListaWaffle(listaWaffle);
+		listaWaffle.add(entity);
 		escribirArchivoSerializado();
 	}
 
+	private String contenido;
+	private int i;
+
 	@Override
 	public String mostrarDatos() {
-		StringBuilder content = new StringBuilder();
-		ArrayList<Waffle> entities = DataMapper.convertirListaWaffleDTOAListaWaffle(listaWaffle);
+		contenido = "";
+		i = 1;
+		listaWaffle.forEach((Waffle) -> {
+			contenido += "| " + i + 1 + " |" + Waffle.toString();
+			i++;
+		});
 
-		for (int i = 0; i < entities.size(); i++) {
-			content.append(i + 1).append(". ").append(entities.get(i).toString()).append("\n");
-		}
-		return content.toString();
+		return contenido;
 	}
 
 	@Override
@@ -51,8 +54,7 @@ public class WaffleDAO implements DAO<WaffleDTO> {
 			return false;
 		} else {
 			Waffle entity = DataMapper.convertirWaffleDTOaWaffle(datoActualizado);
-			listaWaffle.set(indice, datoActualizado);
-			DataMapper.convertirListaWaffleDTOAListaWaffle(listaWaffle);
+			listaWaffle.set(indice, entity);
 			escribirArchivoSerializado();
 			return true;
 		}
@@ -62,15 +64,34 @@ public class WaffleDAO implements DAO<WaffleDTO> {
 	public void cargarDesdeArchivoSerializado() {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
-			listaWaffle = (ArrayList<WaffleDTO>) contenido;
+			listaWaffle = (ArrayList<Waffle>) contenido;
 		} else {
-			listaWaffle = new ArrayList<WaffleDTO>();
+			listaWaffle = new ArrayList<>();
 		}
 	}
 
 	@Override
 	public void escribirArchivoSerializado() {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaWaffle);
+
+	}
+
+	public ArrayList<Waffle> getListaWaffle() {
+		return listaWaffle;
+	}
+
+	public void setListaWaffle(ArrayList<Waffle> listaWaffle) {
+		this.listaWaffle = listaWaffle;
+	}
+
+	public StringBuilder escribirDesdeArchivoTextoMixto() {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		for (Waffle Waffle : listaWaffle) {
+			sb.append(Waffle.getNombreProducto() + ";" + Waffle.getTipoDeWaffle() + Waffle.getPrecioProducto()
+					+ Waffle.getCantidadProducto() + ";" + "\n");
+		}
+		return sb;
 	}
 
 }

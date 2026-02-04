@@ -16,7 +16,7 @@ public class HeladoDAOTest {
 	@BeforeClass
 	public static void antesDeTodo() {
 		hDAO = new HeladoDAO();
-		listaAntes = new ArrayList<>(hDAO.getListaHelado());
+//		listaAntes = new ArrayList<>(hDAO.getListaHelado());
 		System.out.println("Empezando pruebas unitarias de HeladoDAO");
 	}
 
@@ -35,7 +35,7 @@ public class HeladoDAOTest {
 
 		assertEquals(sizeAntes + 1, sizeDespues);
 
-		HeladoDTO ultimo = hDAO.getListaHelado().get(hDAO.getListaHelado().size() - 1);
+//		HeladoDTO ultimo = hDAO.getListaHelado().get(hDAO.getListaHelado().size() - 1);
 
 		//assertEquals(hDTO.getNombre(), ultimo.getNombre());
 	}
@@ -59,7 +59,7 @@ public class HeladoDAOTest {
 
 	@After
 	public void despuesDeCadaPrueba() {
-		hDAO.setListaHelado(new ArrayList<>(listaAntes));
+//		hDAO.setListaHelado(new ArrayList<>(listaAntes));
 		hDAO.escribirArchivoSerializado();
 		System.out.println("Finalizando prueba");
 	}

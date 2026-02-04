@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.Properties;
 
 import co.edu.unbosque.model.ModelFacade;
+import co.edu.unbosque.model.persistence.FileHandler;
 import co.edu.unbosque.view.Consola;
 import co.edu.unbosque.view.ViewFacade;
 
@@ -15,10 +16,10 @@ public class Controlador implements ActionListener {
 	private Properties prop;
 
 	public Controlador() {
+		prop = FileHandler.cargarArchivoPropiedades("esp.properties");
 		mf = new ModelFacade();
-		vf = new ViewFacade();
-		prop = new Properties();
-		asignarListeners();
+//		vf = new ViewFacade(prop);
+		mf.escribirArchivoDeTexto();
 	}
 
 	public void asignarListeners() {
