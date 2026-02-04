@@ -21,11 +21,7 @@ public class VentanaInicio extends JFrame {
 	private JLabel lLanguage;
 	private JButton btnAccess;
 	private JButton btnExit;
-
-	// Selector de rol
 	private JComboBox<String> cbRole;
-
-	// Selector de idioma
 	private JComboBox<String> cbLanguage;
 
 	public VentanaInicio() {
@@ -40,8 +36,7 @@ public class VentanaInicio extends JFrame {
 	}
 
 	private void initializeComponents() {
-		// -------- CONFIG GENERAL --------
-		setTitle("Heladaria NoseQue - Inicio");
+		setTitle("Heladaria - Inicio");
 		setSize(900, 650);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -49,20 +44,18 @@ public class VentanaInicio extends JFrame {
 		setLayout(null);
 		getContentPane().setBackground(Color.decode("#F5EFE7"));
 
-		// -------- HEADER --------
 		panelHeader = new JPanel();
 		panelHeader.setBounds(0, 0, 900, 140);
 		panelHeader.setBackground(Color.decode("#FFFFFF"));
 		panelHeader.setLayout(null);
 		add(panelHeader);
 
-		lTitle = new JLabel("Heladeria NoseQue", JLabel.CENTER);
+		lTitle = new JLabel("Heladeria", JLabel.CENTER);
 		lTitle.setBounds(0, 35, panelHeader.getWidth(), 60);
 		lTitle.setFont(new Font("Georgia", Font.BOLD, 56));
 		lTitle.setForeground(Color.decode("#D35400"));
 		panelHeader.add(lTitle);
 
-		// -------- PANEL OPCIONES --------
 		panelOptions = new JPanel();
 		panelOptions.setBounds(280, 190, 340, 320);
 		panelOptions.setBackground(Color.decode("#FFFFFF"));
@@ -80,7 +73,7 @@ public class VentanaInicio extends JFrame {
 		lRoleHint.setFont(new Font("Noto Sans", Font.PLAIN, 14));
 		panelOptions.add(lRoleHint);
 
-		cbRole = new JComboBox<>(new String[] { "Cliente" });
+		cbRole = new JComboBox<>(new String[] { "Cliente", "Admin" });
 		cbRole.setBounds(30, 90, 280, 35);
 		cbRole.setFont(new Font("Noto Sans", Font.PLAIN, 15));
 		panelOptions.add(cbRole);
@@ -90,7 +83,7 @@ public class VentanaInicio extends JFrame {
 		lLanguage.setFont(new Font("Noto Sans", Font.PLAIN, 14));
 		panelOptions.add(lLanguage);
 
-		cbLanguage = new JComboBox<>(new String[] { "Español"/* , "English", "Português", "Français" */ });
+		cbLanguage = new JComboBox<>(new String[] { "Español", "English" });
 		cbLanguage.setBounds(30, 165, 280, 35);
 		cbLanguage.setFont(new Font("Noto Sans", Font.PLAIN, 15));
 		panelOptions.add(cbLanguage);
@@ -114,7 +107,6 @@ public class VentanaInicio extends JFrame {
 		panelOptions.add(btnExit);
 	}
 
-	// -------- INTERNACIONALIZACIÓN --------
 	public void aplicarInternacionalizacion(Properties prop) {
 		setTitle(prop.getProperty("heladeria.start.title"));
 		lWelcome.setText(prop.getProperty("heladeria.start.welcome"));
