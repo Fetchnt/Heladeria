@@ -29,7 +29,7 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 		ArrayList<Helado> entities = DataMapper.convertirListaHeladoDTOaListaDTO(listaHelado);
 
 		for (int i = 0; i < entities.size(); i++) {
-			content.append(i).append(". ").append(entities.get(i).toString()).append("\n");
+			content.append(i+1).append(". ").append(entities.get(i).toString()).append("\n");
 		}
 		return content.toString();
 	}

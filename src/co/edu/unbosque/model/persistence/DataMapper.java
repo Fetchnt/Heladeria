@@ -3,7 +3,11 @@ package co.edu.unbosque.model.persistence;
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.Helado; 
-import co.edu.unbosque.model.HeladoDTO; 
+import co.edu.unbosque.model.HeladoDTO;
+import co.edu.unbosque.model.Waffle;
+import co.edu.unbosque.model.WaffleDTO;
+import co.edu.unbosque.model.Crepe;
+import co.edu.unbosque.model.CrepeDTO;
 
 public class DataMapper {
 
@@ -28,6 +32,59 @@ public class DataMapper {
 			entity.setCantidadProducto(heladoDTO.getCantidadProducto());
 			entity.setPrecioProducto(heladoDTO.getPrecioProducto());
 			entity.setSaborBolas(heladoDTO.getSaborBolas());
+			entityList.add(entity);
+		}
+		return entityList;
+	}
+	
+	public static ArrayList<WaffleDTO> convertirListaWaffleAListaWaffleDTO(ArrayList<Waffle> entityList) {
+		ArrayList<WaffleDTO> dtoList = new ArrayList<WaffleDTO>();
+		for (Waffle waffle : entityList) {
+			WaffleDTO dto = new WaffleDTO();
+			dto.setNombreProducto(waffle.getNombreProducto());
+			dto.setCantidadProducto(waffle.getCantidadProducto());
+			dto.setPrecioProducto(waffle.getPrecioProducto());
+			dto.setTipoDeWaffle(waffle.getTipoDeWaffle());
+			dtoList.add(dto);
+		}
+		return dtoList;
+	}
+	
+	public static ArrayList<Waffle> convertirListaWaffleDTOAListaWaffle(ArrayList<WaffleDTO> dtoList) {
+		ArrayList<Waffle> entityList = new ArrayList<Waffle>();
+		for (WaffleDTO waffleDTO : dtoList) {
+			Waffle entity = new Waffle();
+			entity.setNombreProducto(waffleDTO.getNombreProducto());
+			entity.setCantidadProducto(waffleDTO.getCantidadProducto());
+			entity.setPrecioProducto(waffleDTO.getPrecioProducto());
+			entity.setTipoDeWaffle(waffleDTO.getTipoDeWaffle());
+			entityList.add(entity);
+		}
+		return entityList;
+	}
+	
+	public static ArrayList<CrepeDTO> convertirListaCrepeAListaCrepeDTO(ArrayList<Crepe> entityList) {
+		ArrayList<CrepeDTO> dtoList = new ArrayList<CrepeDTO>();
+		for (CrepeDTO crepeDTO : dtoList) {
+			CrepeDTO dto = new CrepeDTO();
+			dto.setNombreProducto(crepeDTO.getNombreProducto());
+			dto.setCantidadProducto(crepeDTO.getCantidadProducto());
+			dto.setPrecioProducto(crepeDTO.getPrecioProducto());
+			dto.setTipoDeCrepe(crepeDTO.getTipoDeCrepe());
+			dto.setSalsa(crepeDTO.getSalsa());
+			dtoList.add(crepeDTO);
+		}
+		return dtoList;
+	}
+	public static ArrayList<Crepe> convertirListaCrepeDTOAListaCrepe(ArrayList<CrepeDTO> dtoList) {
+		ArrayList<Crepe> entityList = new ArrayList<Crepe>();
+		for (CrepeDTO crepeDTO : dtoList) {
+			Crepe entity = new Crepe();
+			entity.setNombreProducto(crepeDTO.getNombreProducto());
+			entity.setCantidadProducto(crepeDTO.getCantidadProducto());
+			entity.setPrecioProducto(crepeDTO.getPrecioProducto());
+			entity.setTipoDeCrepe(crepeDTO.getTipoDeCrepe());
+			entity.setSalsa(crepeDTO.getSalsa());
 			entityList.add(entity);
 		}
 		return entityList;
