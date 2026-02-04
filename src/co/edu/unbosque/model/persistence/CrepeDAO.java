@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.model.Crepe;
 import co.edu.unbosque.model.CrepeDTO;
-import co.edu.unbosque.model.Crepe;
 
 public class CrepeDAO implements DAO<CrepeDTO> {
 

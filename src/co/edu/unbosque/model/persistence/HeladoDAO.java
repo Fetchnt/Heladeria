@@ -30,7 +30,7 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 		contenido = "";
 		i = 1;
 		listaHelado.forEach((Helado) -> {
-			contenido += "| " + i+1 + " |" + Helado.toString();
+			contenido += "| " + i + 1 + " |" + Helado.toString();
 			i++;
 		});
 
@@ -83,8 +83,7 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 	public void setListaHelado(ArrayList<Helado> listaHelado) {
 		this.listaHelado = listaHelado;
 	}
-	
-	
+
 	public StringBuilder escribirDesdeArchivoTextoMixto() {
 		// TODO Auto-generated method stub
 		StringBuilder sb = new StringBuilder();
@@ -94,4 +93,5 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 		}
 		return sb;
 	}
+
 }
