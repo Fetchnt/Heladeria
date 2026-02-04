@@ -16,18 +16,18 @@ public class Controlador implements ActionListener {
 	public Controlador() {
 		prop = FileHandler.cargarArchivoPropiedades("esp.properties");
 		mf = new ModelFacade();
-//		vf = new ViewFacade(prop);
+		vf = new ViewFacade(prop);
 		mf.escribirArchivoDeTexto();
 	}
 
 	public void asignarListeners() {
-		vf.getsWin().getBtnAccess().addActionListener(this);
-		vf.getsWin().getBtnAccess().setActionCommand("boton_acceso");
+		vf.getvInicio().getBtnAccess().addActionListener(this);
+		vf.getvInicio().getBtnAccess().setActionCommand("boton_acceso");
 
 	}
 
 	public void run() {
-		vf.getsWin().setVisible(true);
+		vf.getvInicio().setVisible(true);
 	}
 
 	@Override

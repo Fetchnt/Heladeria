@@ -10,20 +10,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class StartWindow extends JFrame {
-
-	private static final long serialVersionUID = 1L;
+public class VentanaInicio extends JFrame {
 
 	private Properties prop;
-
 	private JPanel panelHeader;
 	private JPanel panelOptions;
-
 	private JLabel lTitle;
 	private JLabel lWelcome;
 	private JLabel lRoleHint;
 	private JLabel lLanguage;
-
 	private JButton btnAccess;
 	private JButton btnExit;
 
@@ -33,12 +28,12 @@ public class StartWindow extends JFrame {
 	// Selector de idioma
 	private JComboBox<String> cbLanguage;
 
-	public StartWindow() {
+	public VentanaInicio() {
 		initializeComponents();
 		setVisible(false);
 	}
 
-	public StartWindow(Properties prop) {
+	public VentanaInicio(Properties prop) {
 		setProp(prop);
 		initializeComponents();
 		setVisible(false);
@@ -132,9 +127,15 @@ public class StartWindow extends JFrame {
 		cbRole.addItem(prop.getProperty("heladeria.start.role.client"));
 		cbRole.addItem(prop.getProperty("heladeria.start.role.admin"));
 	}
-	
 
-	
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+	}
+
 	public JPanel getPanelHeader() {
 		return panelHeader;
 	}
@@ -215,13 +216,4 @@ public class StartWindow extends JFrame {
 		this.cbLanguage = cbLanguage;
 	}
 
-	public Properties getProp() {
-		return prop;
-	}
-
-	public void setProp(Properties prop) {
-		this.prop = prop;
-	}
-	
-	
 }

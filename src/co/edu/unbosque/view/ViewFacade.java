@@ -4,22 +4,23 @@ import java.util.Properties;
 
 public class ViewFacade {
 
-	private StartWindow sWin;
+	private VentanaInicio vInicio;
 
 	public ViewFacade(Properties prop) {
-		sWin = new StartWindow(prop);
+		vInicio = new VentanaInicio(prop);
 
 	}
 
 	public void cargarPropiedades(Properties prop) {
+
 	}
 
-	public StartWindow getsWin() {
-		return sWin;
+	public VentanaInicio getvInicio() {
+		return vInicio;
 	}
 
-	public void setsWin(StartWindow sWin) {
-		this.sWin = sWin;
+	public void setvInicio(VentanaInicio vInicio) {
+		this.vInicio = vInicio;
 	}
 
 }
