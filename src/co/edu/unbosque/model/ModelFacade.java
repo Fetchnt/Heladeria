@@ -1,13 +1,13 @@
 package co.edu.unbosque.model;
 
 import co.edu.unbosque.model.persistence.CrepeDAO;
-import co.edu.unbosque.model.persistence.FileHandler;
 import co.edu.unbosque.model.persistence.HeladoDAO;
 import co.edu.unbosque.model.persistence.WaffleDAO;
+
 public class ModelFacade {
 
 	private HeladoDAO hDAO;
-	private WaffleDAO wDAO; 
+	private WaffleDAO wDAO;
 	private CrepeDAO cDAO;
 
 	public ModelFacade() {
@@ -39,16 +39,11 @@ public class ModelFacade {
 	public void setcDAO(CrepeDAO cDAO) {
 		this.cDAO = cDAO;
 	}
-	
+
 	public void escribirArchivoDeTexto() {
 		String content = "";
-		content += hDAO.escribirDesdeArchivoTextoMixto().toString()
-				+ wDAO.escribirDesdeArchivoTextoMixto().toString() + cDAO.escribirDesdeArchivoTextoMixto().toString();
-		FileHandler.escribirEnArchivoTexto("datos.csv", content);
+		content += hDAO.escribirDesdeArchivoTextoMixto().toString() + wDAO.escribirDesdeArchivoTextoMixto().toString()
+				+ cDAO.escribirDesdeArchivoTextoMixto().toString();
 	}
 
-	
-	
-	
-	
 }

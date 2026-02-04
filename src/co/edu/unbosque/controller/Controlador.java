@@ -3,10 +3,8 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Properties;
-
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.persistence.FileHandler;
-import co.edu.unbosque.view.Consola;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
@@ -27,7 +25,7 @@ public class Controlador implements ActionListener {
 		vf.getsWin().getBtnAccess().setActionCommand("boton_acceso");
 
 	}
-	
+
 	public void run() {
 		vf.getsWin().setVisible(true);
 	}
