@@ -120,4 +120,78 @@ public class VentanaPrincipal extends JFrame {
 		this.prop = prop;
 	}
 
+	public JButton getBotonHelados() {
+		return botonHelados;
+	}
+
+	public void setBotonHelados(JButton botonHelados) {
+		this.botonHelados = botonHelados;
+	}
+
+	public JButton getBotonCrepes() {
+		return botonCrepes;
+	}
+
+	public void setBotonCrepes(JButton botonCrepes) {
+		this.botonCrepes = botonCrepes;
+	}
+
+	public JButton getBotonVolver() {
+		return botonVolver;
+	}
+
+	public void setBotonVolver(JButton botonVolver) {
+		this.botonVolver = botonVolver;
+	}
+
+	public JButton getBotonWaffles() {
+		return botonWaffles;
+	}
+
+	public void setBotonWaffles(JButton botonWaffles) {
+		this.botonWaffles = botonWaffles;
+	}
+
+	public JLabel getTextoInicio() {
+		return textoInicio;
+	}
+
+	public void setTextoInicio(JLabel textoInicio) {
+		this.textoInicio = textoInicio;
+	}
+
+	public JLabel getTextoHelado() {
+		return textoHelado;
+	}
+
+	public void setTextoHelado(JLabel textoHelado) {
+		this.textoHelado = textoHelado;
+	}
+
+	public JLabel getTextoCrepes() {
+		return textoCrepes;
+	}
+
+	public void setTextoCrepes(JLabel textoCrepes) {
+		this.textoCrepes = textoCrepes;
+	}
+
+	public JLabel getTextoWaffles() {
+		return textoWaffles;
+	}
+
+	public void setTextoWaffles(JLabel textoWaffles) {
+		this.textoWaffles = textoWaffles;
+	}
+
+	public JPanel getPanelGris() {
+		return panelGris;
+	}
+
+	public void setPanelGris(JPanel panelGris) {
+		this.panelGris = panelGris;
+	}
+	
+	
+
 }

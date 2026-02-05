@@ -6,10 +6,12 @@ public class ViewFacade {
 
 	private VentanaInicio vInicio;
 	private VentanaPrincipal vPrincipal;
+	private VentanaSaborHelado vHelado;
 
 	public ViewFacade(Properties prop) {
 		vInicio = new VentanaInicio(prop);
 		vPrincipal = new VentanaPrincipal(prop);
+		vHelado = new VentanaSaborHelado(prop);
 
 	}
 
@@ -32,5 +34,14 @@ public class ViewFacade {
 	public void setvPrincipal(VentanaPrincipal vPrincipal) {
 		this.vPrincipal = vPrincipal;
 	}
+
+	public VentanaSaborHelado getvHelado() {
+		return vHelado;
+	}
+
+	public void setvHelado(VentanaSaborHelado vHelado) {
+		this.vHelado = vHelado;
+	}
+	
 
 }

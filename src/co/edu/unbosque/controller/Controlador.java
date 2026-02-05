@@ -26,6 +26,9 @@ public class Controlador implements ActionListener {
 
 		vf.getvInicio().getBtnExit().addActionListener(this);
 		vf.getvInicio().getBtnExit().setActionCommand("boton_salir");
+		
+		vf.getvPrincipal().getBotonHelados().addActionListener(this);
+		vf.getvPrincipal().getBotonHelados().setActionCommand("boton_helados");
 
 	}
 
@@ -52,6 +55,13 @@ public class Controlador implements ActionListener {
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
+		
+		case "boton_helados": {
+			vf.getvPrincipal().dispose();
+			vf.getvHelado().setVisible(true);
+		}
+		
+		
 
 		} // Cierra el switch
 
