@@ -1,0 +1,104 @@
+package co.edu.unbosque.view;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Panel;
+import java.util.Properties;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class VentanaPrincipal extends JFrame {
+
+	private Properties prop;
+	private JButton botonHelados;
+	private JButton botonCrepes;
+	private JButton botonWaffles;
+	private JLabel textoInicio;
+	private JLabel textoHelado;
+	private JLabel textoCrepes;
+	private JLabel textoWaffles;
+	private JPanel panelGris;
+
+	public VentanaPrincipal() {
+		initializeComponents();
+		setVisible(false);
+	}
+
+	public VentanaPrincipal(Properties prop) {
+		setProp(prop);
+		initializeComponents();
+		setVisible(false);
+	}
+
+	private void initializeComponents() {
+		setTitle("Ventana principal");
+		setSize(900, 650);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		setLayout(null);
+		getContentPane().setBackground(Color.decode("#F5EFE7"));
+
+		ImageIcon iconoOriginalh = new ImageIcon(getClass().getResource("helados.jpeg"));
+		Image imagenEscaladah = iconoOriginalh.getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH);
+		ImageIcon iconoFinalh = new ImageIcon(imagenEscaladah);
+		botonHelados = new JButton(iconoFinalh);
+		botonHelados.setBounds(100, 250, 180, 180);
+		botonHelados.setFocusPainted(false);
+		this.add(botonHelados);
+		
+		textoHelado = new JLabel("Helado");
+		textoHelado.setBounds(115, 430, 200, 100);
+		textoHelado.setForeground(Color.BLACK);
+		textoHelado.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+		add(textoHelado);
+
+		ImageIcon iconoOriginalw = new ImageIcon(getClass().getResource("waffles.jpg"));
+		Image imagenEscaladaw = iconoOriginalw.getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH);
+		ImageIcon iconoFinalw = new ImageIcon(imagenEscaladaw);
+		botonWaffles = new JButton(iconoFinalw);
+		botonWaffles.setBounds(350, 250, 180, 180);
+		botonWaffles.setFocusPainted(false);
+		this.add(botonWaffles);
+
+		ImageIcon iconoOriginalc = new ImageIcon(getClass().getResource("creps.jpg"));
+		Image imagenEscaladac = iconoOriginalc.getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH);
+		ImageIcon iconoFinalc = new ImageIcon(imagenEscaladac);
+		botonCrepes = new JButton(iconoFinalc);
+		botonCrepes.setBounds(600, 250, 180, 180);
+		botonCrepes.setFocusPainted(false);
+		this.add(botonCrepes);
+
+		panelGris = new JPanel();
+		panelGris.setBounds(0, 0, 900, 140);
+		panelGris.setBackground(Color.decode("#FFFFFF"));
+		panelGris.setLayout(null);
+		add(panelGris);
+
+		textoInicio = new JLabel("Seleccione su producto", JLabel.CENTER);
+		textoInicio.setBounds(0, 20, 900, 80);
+		textoInicio.setForeground(Color.decode("#D35400"));
+		textoInicio.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+		panelGris.add(textoInicio);
+
+	}
+
+	public void aplicarInternacionalizacion(Properties prop) {
+		setTitle(prop.getProperty("heladeria.start.title"));
+
+	}
+
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+	}
+
+}

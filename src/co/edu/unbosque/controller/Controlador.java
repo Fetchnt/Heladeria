@@ -39,15 +39,19 @@ public class Controlador implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String alias = e.getActionCommand();
-		
+
 		switch (alias) {
 
 		case "boton_salir": {
 			System.exit(0);
 			break;
 		}
-		
-		
+
+		case "boton_acceso": {
+			vf.getvInicio().dispose();
+			vf.getvPrincipal().setVisible(true);
+			break;
+		}
 
 		} // Cierra el switch
 

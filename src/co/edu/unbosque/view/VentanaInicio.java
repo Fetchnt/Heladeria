@@ -52,7 +52,7 @@ public class VentanaInicio extends JFrame {
 
 		lTitle = new JLabel("Heladeria", JLabel.CENTER);
 		lTitle.setBounds(0, 35, panelHeader.getWidth(), 60);
-		lTitle.setFont(new Font("Georgia", Font.BOLD, 56));
+		lTitle.setFont(new Font("Comic Sans MS", Font.BOLD, 56));
 		lTitle.setForeground(Color.decode("#D35400"));
 		panelHeader.add(lTitle);
 
@@ -64,33 +64,33 @@ public class VentanaInicio extends JFrame {
 
 		lWelcome = new JLabel("Bienvenido");
 		lWelcome.setBounds(95, 15, 200, 30);
-		lWelcome.setFont(new Font("Noto Sans", Font.BOLD, 24));
+		lWelcome.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
 		lWelcome.setForeground(Color.decode("#6E2C00"));
 		panelOptions.add(lWelcome);
 
 		lRoleHint = new JLabel("Desea ingresar como: ");
 		lRoleHint.setBounds(30, 65, 200, 20);
-		lRoleHint.setFont(new Font("Noto Sans", Font.PLAIN, 14));
+		lRoleHint.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
 		panelOptions.add(lRoleHint);
 
 		cbRole = new JComboBox<>(new String[] { "Cliente", "Admin" });
 		cbRole.setBounds(30, 90, 280, 35);
-		cbRole.setFont(new Font("Noto Sans", Font.PLAIN, 15));
+		cbRole.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
 		panelOptions.add(cbRole);
 
 		lLanguage = new JLabel("Idioma");
 		lLanguage.setBounds(30, 140, 200, 20);
-		lLanguage.setFont(new Font("Noto Sans", Font.PLAIN, 14));
+		lLanguage.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
 		panelOptions.add(lLanguage);
 
 		cbLanguage = new JComboBox<>(new String[] { "Español", "English" });
 		cbLanguage.setBounds(30, 165, 280, 35);
-		cbLanguage.setFont(new Font("Noto Sans", Font.PLAIN, 15));
+		cbLanguage.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
 		panelOptions.add(cbLanguage);
 
 		btnAccess = new JButton("Continuar");
 		btnAccess.setBounds(30, 225, 280, 40);
-		btnAccess.setFont(new Font("Noto Sans", Font.BOLD, 18));
+		btnAccess.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		btnAccess.setBackground(Color.decode("#FAD7A0"));
 		btnAccess.setForeground(Color.decode("#6E2C00"));
 		btnAccess.setFocusPainted(false);
@@ -99,7 +99,7 @@ public class VentanaInicio extends JFrame {
 
 		btnExit = new JButton("Salir");
 		btnExit.setBounds(120, 275, 100, 30);
-		btnExit.setFont(new Font("Noto Sans", Font.PLAIN, 14));
+		btnExit.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
 		btnExit.setBackground(Color.decode("#F5EFE7"));
 		btnExit.setForeground(Color.decode("#6E2C00"));
 		btnExit.setFocusPainted(false);
