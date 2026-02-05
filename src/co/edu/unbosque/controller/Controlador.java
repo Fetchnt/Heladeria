@@ -26,9 +26,21 @@ public class Controlador implements ActionListener {
 
 		vf.getvInicio().getBtnExit().addActionListener(this);
 		vf.getvInicio().getBtnExit().setActionCommand("boton_salir");
-		
+
 		vf.getvPrincipal().getBotonHelados().addActionListener(this);
 		vf.getvPrincipal().getBotonHelados().setActionCommand("boton_helados");
+
+		vf.getvPrincipal().getBotonVolver().addActionListener(this);
+		vf.getvPrincipal().getBotonVolver().setActionCommand("boton_volver_vp");
+
+		vf.getvPrincipal().getBotonWaffles().addActionListener(this);
+		vf.getvPrincipal().getBotonWaffles().setActionCommand("boton_waffle");
+
+		vf.getvHelado().getBtnCancelar().addActionListener(this);
+		vf.getvHelado().getBtnCancelar().setActionCommand("boton_volver_helado");
+		
+		vf.getvWaffle().getBtnCancelarWaffle().addActionListener(this);
+		vf.getvWaffle().getBtnCancelarWaffle().setActionCommand("boton_volver_waffle");
 
 	}
 
@@ -55,13 +67,34 @@ public class Controlador implements ActionListener {
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
-		
+
 		case "boton_helados": {
 			vf.getvPrincipal().dispose();
 			vf.getvHelado().setVisible(true);
+			break;
 		}
-		
-		
+		case "boton_volver_helado": {
+			vf.getvHelado().dispose();
+			vf.getvPrincipal().setVisible(true);
+			break;
+		}
+
+		case "boton_waffle": {
+			vf.getvPrincipal().dispose();
+			vf.getvWaffle().setVisible(true);
+			break;
+		}
+		case "boton_volver_waffle": {
+			vf.getvWaffle().dispose();
+			vf.getvPrincipal().setVisible(true);
+			break;
+		}
+
+		case "boton_volver_vp": {
+			vf.getvPrincipal().dispose();
+			vf.getvInicio().setVisible(true);
+			break;
+		}
 
 		} // Cierra el switch
 
