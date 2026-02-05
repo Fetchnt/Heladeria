@@ -3,9 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.Panel;
 import java.util.Properties;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,6 +15,7 @@ public class VentanaPrincipal extends JFrame {
 	private Properties prop;
 	private JButton botonHelados;
 	private JButton botonCrepes;
+	private JButton botonVolver;
 	private JButton botonWaffles;
 	private JLabel textoInicio;
 	private JLabel textoHelado;
@@ -51,7 +50,7 @@ public class VentanaPrincipal extends JFrame {
 		botonHelados.setBounds(100, 250, 180, 180);
 		botonHelados.setFocusPainted(false);
 		this.add(botonHelados);
-		
+
 		textoHelado = new JLabel("Helado");
 		textoHelado.setBounds(115, 430, 200, 100);
 		textoHelado.setForeground(Color.BLACK);
@@ -65,7 +64,7 @@ public class VentanaPrincipal extends JFrame {
 		botonWaffles.setBounds(350, 250, 180, 180);
 		botonWaffles.setFocusPainted(false);
 		this.add(botonWaffles);
-		
+
 		textoWaffles = new JLabel("Waffles");
 		textoWaffles.setBounds(355, 430, 200, 100);
 		textoWaffles.setForeground(Color.BLACK);
@@ -79,7 +78,7 @@ public class VentanaPrincipal extends JFrame {
 		botonCrepes.setBounds(600, 250, 180, 180);
 		botonCrepes.setFocusPainted(false);
 		this.add(botonCrepes);
-		
+
 		textoCrepes = new JLabel("Crepes");
 		textoCrepes.setBounds(620, 430, 200, 100);
 		textoCrepes.setForeground(Color.BLACK);
@@ -97,6 +96,14 @@ public class VentanaPrincipal extends JFrame {
 		textoInicio.setForeground(Color.decode("#D35400"));
 		textoInicio.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
 		panelGris.add(textoInicio);
+
+		botonVolver = new JButton("VOLVER");
+		botonVolver.setBounds(385, 540, 100, 40);
+		botonVolver.setBackground(Color.decode("#042F6D"));
+		botonVolver.setForeground(Color.WHITE);
+		botonVolver.setFocusPainted(false);
+		botonVolver.setBorderPainted(false);
+		add(botonVolver);
 
 	}
 
