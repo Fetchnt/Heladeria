@@ -16,6 +16,7 @@ public class VentanaPrincipal extends JFrame {
 	private JButton botonHelados;
 	private JButton botonCrepes;
 	private JButton botonVolver;
+	private JButton botonPollo;
 	private JButton botonWaffles;
 	private JLabel textoInicio;
 	private JLabel textoHelado;
@@ -100,10 +101,20 @@ public class VentanaPrincipal extends JFrame {
 		botonVolver = new JButton("VOLVER");
 		botonVolver.setBounds(385, 540, 100, 40);
 		botonVolver.setBackground(Color.decode("#042F6D"));
+		botonVolver.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
 		botonVolver.setForeground(Color.WHITE);
 		botonVolver.setFocusPainted(false);
 		botonVolver.setBorderPainted(false);
 		add(botonVolver);
+
+		botonPollo = new JButton("Pollo");
+		botonPollo.setBounds(760, 170, 80, 30);
+		botonPollo.setBackground(Color.RED);
+		botonPollo.setForeground(Color.YELLOW);
+		botonPollo.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		botonPollo.setFocusPainted(false);
+		botonPollo.setBorderPainted(false);
+		add(botonPollo);
 
 	}
 
@@ -191,7 +202,13 @@ public class VentanaPrincipal extends JFrame {
 	public void setPanelGris(JPanel panelGris) {
 		this.panelGris = panelGris;
 	}
-	
-	
+
+	public JButton getBotonPollo() {
+		return botonPollo;
+	}
+
+	public void setBotonPollo(JButton botonPollo) {
+		this.botonPollo = botonPollo;
+	}
 
 }

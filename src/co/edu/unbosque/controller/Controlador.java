@@ -3,6 +3,9 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Properties;
+
+import javax.swing.JOptionPane;
+
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.persistence.FileHandler;
 import co.edu.unbosque.view.ViewFacade;
@@ -38,9 +41,12 @@ public class Controlador implements ActionListener {
 
 		vf.getvHelado().getBtnCancelar().addActionListener(this);
 		vf.getvHelado().getBtnCancelar().setActionCommand("boton_volver_helado");
-		
+
 		vf.getvWaffle().getBtnCancelarWaffle().addActionListener(this);
 		vf.getvWaffle().getBtnCancelarWaffle().setActionCommand("boton_volver_waffle");
+
+		vf.getvPrincipal().getBotonPollo().addActionListener(this);
+		vf.getvPrincipal().getBotonPollo().setActionCommand("boton_pollo");
 
 	}
 
@@ -93,6 +99,12 @@ public class Controlador implements ActionListener {
 		case "boton_volver_vp": {
 			vf.getvPrincipal().dispose();
 			vf.getvInicio().setVisible(true);
+			break;
+		}
+		case "boton_pollo": {
+			vf.getvPrincipal().dispose();
+			JOptionPane.showMessageDialog(null, "Esto es una heladería, no vendemos pollo 😂", "Error", 0);
+			vf.getvPrincipal().setVisible(true);
 			break;
 		}
 
