@@ -40,14 +40,6 @@ public class HeladoDTO extends Producto {
 		this.saborBolas = saborBolas;
 	}
 
-	// public int getCantidadDeBolas() {
-	// return cantidadDeBolas;
-	// }
-
-//      public void setCantidadDeBolas(int cantidadDeBolas) {
-//		this.cantidadDeBolas = cantidadDeBolas;
-//	}
-
 	@Override
 	public String toString() {
 		return super.toString() + "\n - Sabor de las bolas: " + saborBolas

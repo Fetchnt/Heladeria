@@ -41,6 +41,6 @@ public class WaffleDTO extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString() +  "\n - Tipo de waffle: " + tipoDeWaffle + "\n - Salsa Deseada: " + "\n======================================";
+		return super.toString() +  "\n - Tipo de waffle: " + tipoDeWaffle /*+ "\n - Salsa Deseada: " */+ "\n======================================";
 	}
 }
