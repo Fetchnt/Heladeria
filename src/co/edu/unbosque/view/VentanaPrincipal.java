@@ -65,6 +65,12 @@ public class VentanaPrincipal extends JFrame {
 		botonWaffles.setBounds(350, 250, 180, 180);
 		botonWaffles.setFocusPainted(false);
 		this.add(botonWaffles);
+		
+		textoWaffles = new JLabel("Waffles");
+		textoWaffles.setBounds(355, 430, 200, 100);
+		textoWaffles.setForeground(Color.BLACK);
+		textoWaffles.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+		add(textoWaffles);
 
 		ImageIcon iconoOriginalc = new ImageIcon(getClass().getResource("creps.jpg"));
 		Image imagenEscaladac = iconoOriginalc.getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH);
@@ -73,6 +79,12 @@ public class VentanaPrincipal extends JFrame {
 		botonCrepes.setBounds(600, 250, 180, 180);
 		botonCrepes.setFocusPainted(false);
 		this.add(botonCrepes);
+		
+		textoCrepes = new JLabel("Crepes");
+		textoCrepes.setBounds(620, 430, 200, 100);
+		textoCrepes.setForeground(Color.BLACK);
+		textoCrepes.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+		add(textoCrepes);
 
 		panelGris = new JPanel();
 		panelGris.setBounds(0, 0, 900, 140);
