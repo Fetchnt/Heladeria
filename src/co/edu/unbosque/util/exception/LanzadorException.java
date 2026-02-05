@@ -1,5 +1,5 @@
 package co.edu.unbosque.util.exception;
 
-public class LanzadorDeException {
+public class LanzadorException {
 
 }
