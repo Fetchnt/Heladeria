@@ -3,9 +3,7 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Properties;
-
 import javax.swing.JOptionPane;
-
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.persistence.FileHandler;
 import co.edu.unbosque.view.ViewFacade;
@@ -140,6 +138,7 @@ public class Controlador implements ActionListener {
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
+
 		case "boton_waffle": {
 			vf.getvPrincipal().dispose();
 			vf.getvWaffle().setVisible(true);
@@ -157,15 +156,14 @@ public class Controlador implements ActionListener {
 				vf.getvFactura().getTextoProducto().setText("Waffle");
 				vf.getvFactura().getTextoTipo().setText("Salado");
 			}
-
 			vf.getvFactura().getTextoPrecio().setText("6.000");
-
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
 			vf.getvFactura().setVisible(true);
 
 			break;
 		}
+
 		case "boton_volver_waffle": {
 			vf.getvWaffle().dispose();
 			vf.getvPrincipal().setVisible(true);
@@ -177,29 +175,52 @@ public class Controlador implements ActionListener {
 			vf.getvInicio().setVisible(true);
 			break;
 		}
+
 		case "boton_pollo": {
 			vf.getvPrincipal().dispose();
 			JOptionPane.showMessageDialog(null, "Esto es una heladería, no vendemos pollo 😂", "Error", 0);
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
+
 		case "boton_crepe": {
 			vf.getvPrincipal().dispose();
 			vf.getvCrepe().setVisible(true);
 			break;
 		}
+
 		case "boton_aceptar_crepe": {
 			vf.getvCrepe().dispose();
-			vf.getvFactura().getTextoProducto().setText("Crepe");
-			vf.getvFactura().getTextoProducto().setText("Crepe");
+
+			if (vf.getvCrepe().getCbTipoCrepe().getSelectedItem().toString().equals("Dulce")) {
+				vf.getvFactura().getTextoProducto().setText("Crepe");
+				vf.getvFactura().getTextoTipo().setText("Dulce");
+			}
+			if (vf.getvCrepe().getCbTipoCrepe().getSelectedItem().toString().equals("Salado")) {
+				vf.getvFactura().getTextoProducto().setText("Crepe");
+				vf.getvFactura().getTextoTipo().setText("Salado");
+			}
+
+			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Chocolate")) {
+				vf.getvFactura().getTextoDetalle().setText("Chocolate");
+			}
+			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Arequipe")) {
+				vf.getvFactura().getTextoDetalle().setText("Arequipe");
+			}
+			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Fresa")) {
+				vf.getvFactura().getTextoDetalle().setText("Fresa");
+			}
+			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Caramelo")) {
+				vf.getvFactura().getTextoDetalle().setText("Caramelo");
+			}
 
 			vf.getvFactura().getTextoPrecio().setText("5.000");
-
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
 			vf.getvFactura().setVisible(true);
 			break;
 		}
+
 		case "boton_volver_crepe": {
 			vf.getvCrepe().dispose();
 			vf.getvPrincipal().setVisible(true);
@@ -209,6 +230,7 @@ public class Controlador implements ActionListener {
 		case "boton_seguir_comprando": {
 			break;
 		}
+
 		case "boton_comprar": {
 			vf.getvFactura().dispose();
 			JOptionPane.showMessageDialog(null, "Compra realizada con éxito", "Compra exitosa", 1);

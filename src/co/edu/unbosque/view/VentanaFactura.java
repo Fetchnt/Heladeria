@@ -23,6 +23,7 @@ public class VentanaFactura extends JDialog {
 	private JButton btnCancelar;
 	private JLabel textoProducto;
 	private JLabel textoTipo;
+	private JLabel textoDetalle;
 	private JLabel textoPrecio;
 	private Properties prop;
 
@@ -73,8 +74,14 @@ public class VentanaFactura extends JDialog {
 		textoProducto.setForeground(Color.decode("#6E2C00"));
 		panel.add(textoProducto);
 
+		textoDetalle = new JLabel();
+		textoDetalle.setBounds(290, 90, 520, 30);
+		textoDetalle.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		textoDetalle.setForeground(Color.decode("#6E2C00"));
+		panel.add(textoDetalle);
+
 		textoTipo = new JLabel();
-		textoTipo.setBounds(180, 90, 520, 30);
+		textoTipo.setBounds(175, 90, 520, 30);
 		textoTipo.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		textoTipo.setForeground(Color.decode("#6E2C00"));
 		panel.add(textoTipo);
@@ -221,6 +228,14 @@ public class VentanaFactura extends JDialog {
 
 	public void setTextoTipo(JLabel textoTipo) {
 		this.textoTipo = textoTipo;
+	}
+
+	public JLabel getTextoDetalle() {
+		return textoDetalle;
+	}
+
+	public void setTextoDetalle(JLabel textoDetalle) {
+		this.textoDetalle = textoDetalle;
 	}
 
 }
