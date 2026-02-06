@@ -39,14 +39,35 @@ public class Controlador implements ActionListener {
 		vf.getvPrincipal().getBotonWaffles().addActionListener(this);
 		vf.getvPrincipal().getBotonWaffles().setActionCommand("boton_waffle");
 
+		vf.getvHelado().getBtnAceptar().addActionListener(this);
+		vf.getvHelado().getBtnAceptar().setActionCommand("boton_aceptar_helado");
+
 		vf.getvHelado().getBtnCancelar().addActionListener(this);
 		vf.getvHelado().getBtnCancelar().setActionCommand("boton_volver_helado");
+
+		vf.getvWaffle().getBtnAceptarWaffle().addActionListener(this);
+		vf.getvWaffle().getBtnAceptarWaffle().setActionCommand("boton_aceptar_waffle");
 
 		vf.getvWaffle().getBtnCancelarWaffle().addActionListener(this);
 		vf.getvWaffle().getBtnCancelarWaffle().setActionCommand("boton_volver_waffle");
 
 		vf.getvPrincipal().getBotonPollo().addActionListener(this);
 		vf.getvPrincipal().getBotonPollo().setActionCommand("boton_pollo");
+
+		vf.getvPrincipal().getBotonCrepes().addActionListener(this);
+		vf.getvPrincipal().getBotonCrepes().setActionCommand("boton_crepe");
+
+		vf.getvCrepe().getBtnAceptarCrepe().addActionListener(this);
+		vf.getvCrepe().getBtnAceptarCrepe().setActionCommand("boton_aceptar_crepe");
+
+		vf.getvCrepe().getBtnCancelarCrepe().addActionListener(this);
+		vf.getvCrepe().getBtnCancelarCrepe().setActionCommand("boton_volver_crepe");
+
+		vf.getvFactura().getBtnSeguirComprando().addActionListener(this);
+		vf.getvFactura().getBtnSeguirComprando().setActionCommand("boton_seguir_comprando");
+
+		vf.getvFactura().getBtnCancelar().addActionListener(this);
+		vf.getvFactura().getBtnCancelar().setActionCommand("boton_cancelar_compra");
 
 	}
 
@@ -79,15 +100,25 @@ public class Controlador implements ActionListener {
 			vf.getvHelado().setVisible(true);
 			break;
 		}
+
+		case "boton_aceptar_helado": {
+			vf.getvHelado().dispose();
+			vf.getvFactura().setVisible(true);
+		}
 		case "boton_volver_helado": {
 			vf.getvHelado().dispose();
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
-
 		case "boton_waffle": {
 			vf.getvPrincipal().dispose();
 			vf.getvWaffle().setVisible(true);
+			break;
+		}
+
+		case "boton_aceptar_waffle": {
+			vf.getvWaffle().dispose();
+			vf.getvFactura().setVisible(true);
 			break;
 		}
 		case "boton_volver_waffle": {
@@ -106,6 +137,33 @@ public class Controlador implements ActionListener {
 			JOptionPane.showMessageDialog(null, "Esto es una heladería, no vendemos pollo 😂", "Error", 0);
 			vf.getvPrincipal().setVisible(true);
 			break;
+		}
+		case "boton_crepe": {
+			vf.getvPrincipal().dispose();
+			vf.getvCrepe().setVisible(true);
+			break;
+		}
+		case "boton_aceptar_crepe": {
+			vf.getvCrepe().dispose();
+			vf.getvFactura().setVisible(true);
+			break;
+		}
+		case "boton_volver_crepe": {
+			vf.getvCrepe().dispose();
+			vf.getvPrincipal().setVisible(true);
+			break;
+		}
+
+		case "boton_seguir_comprando": {
+			vf.getvFactura().dispose();
+			vf.getvPrincipal().setVisible(true);
+			break;
+		}
+		
+		case "boton_cancelar_compra": {
+			vf.getvFactura().dispose();
+// hacer metodo para limpiar la lista
+			vf.getvInicio().setVisible(true);
 		}
 
 		} // Cierra el switch
