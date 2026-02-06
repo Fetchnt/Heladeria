@@ -19,12 +19,9 @@ public class VentanaInicio extends JFrame {
 	private JLabel lTitle;
 	private JLabel lWelcome;
 	private JLabel lRoleHint;
-	private JLabel lLanguage;
 	private JButton btnAccess;
 	private JButton btnExit;
-	private JComboBox<String> cbRole;
 	private JComboBox<String> cbLanguage;
-	private JLabel lHelados;
 
 	public VentanaInicio() {
 		initializeComponents();
@@ -65,33 +62,23 @@ public class VentanaInicio extends JFrame {
 		add(panelOptions);
 
 		lWelcome = new JLabel("Bienvenido");
-		lWelcome.setBounds(95, 15, 200, 30);
-		lWelcome.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
+		lWelcome.setBounds(95, 20, 200, 30);
+		lWelcome.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
 		lWelcome.setForeground(Color.decode("#6E2C00"));
 		panelOptions.add(lWelcome);
 
-		lRoleHint = new JLabel("Desea ingresar como: ");
-		lRoleHint.setBounds(30, 65, 200, 20);
-		lRoleHint.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		lRoleHint = new JLabel("Seleccione el idioma:");
+		lRoleHint.setBounds(30, 70, 200, 22);
+		lRoleHint.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		panelOptions.add(lRoleHint);
 
-		cbRole = new JComboBox<>(new String[] { "Cliente", "Admin" });
-		cbRole.setBounds(30, 90, 280, 35);
-		cbRole.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
-		panelOptions.add(cbRole);
-
-		lLanguage = new JLabel("Idioma");
-		lLanguage.setBounds(30, 140, 200, 20);
-		lLanguage.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-		panelOptions.add(lLanguage);
-
 		cbLanguage = new JComboBox<>(new String[] { "Español", "English" });
-		cbLanguage.setBounds(30, 165, 280, 35);
+		cbLanguage.setBounds(30, 110, 280, 35);
 		cbLanguage.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
 		panelOptions.add(cbLanguage);
 
 		btnAccess = new JButton("Continuar");
-		btnAccess.setBounds(30, 225, 280, 40);
+		btnAccess.setBounds(30, 190, 280, 40);
 		btnAccess.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		btnAccess.setBackground(Color.decode("#FAD7A0"));
 		btnAccess.setForeground(Color.decode("#6E2C00"));
@@ -100,14 +87,14 @@ public class VentanaInicio extends JFrame {
 		panelOptions.add(btnAccess);
 
 		btnExit = new JButton("Salir");
-		btnExit.setBounds(120, 275, 100, 30);
+		btnExit.setBounds(120, 255, 100, 30);
 		btnExit.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
 		btnExit.setBackground(Color.decode("#F5EFE7"));
 		btnExit.setForeground(Color.decode("#6E2C00"));
 		btnExit.setFocusPainted(false);
 		btnExit.setBorderPainted(false);
 		panelOptions.add(btnExit);
-		
+
 		ImageIcon imageHelados = new ImageIcon(getClass().getResource("HeladosInicio.jpg"));
 		JLabel lHelados = new JLabel(imageHelados);
 		lHelados.setBounds(0, 139, 884, 472);
@@ -119,13 +106,9 @@ public class VentanaInicio extends JFrame {
 		setTitle(prop.getProperty("heladeria.start.title"));
 		lWelcome.setText(prop.getProperty("heladeria.start.welcome"));
 		lRoleHint.setText(prop.getProperty("heladeria.start.role"));
-		lLanguage.setText(prop.getProperty("heladeria.start.language"));
 		btnAccess.setText(prop.getProperty("heladeria.start.continue"));
 		btnExit.setText(prop.getProperty("heladeria.start.exit"));
 
-		cbRole.removeAllItems();
-		cbRole.addItem(prop.getProperty("heladeria.start.role.client"));
-		cbRole.addItem(prop.getProperty("heladeria.start.role.admin"));
 	}
 
 	public Properties getProp() {
@@ -176,14 +159,6 @@ public class VentanaInicio extends JFrame {
 		this.lRoleHint = lRoleHint;
 	}
 
-	public JLabel getlLanguage() {
-		return lLanguage;
-	}
-
-	public void setlLanguage(JLabel lLanguage) {
-		this.lLanguage = lLanguage;
-	}
-
 	public JButton getBtnAccess() {
 		return btnAccess;
 	}
@@ -198,14 +173,6 @@ public class VentanaInicio extends JFrame {
 
 	public void setBtnExit(JButton btnExit) {
 		this.btnExit = btnExit;
-	}
-
-	public JComboBox<String> getCbRole() {
-		return cbRole;
-	}
-
-	public void setCbRole(JComboBox<String> cbRole) {
-		this.cbRole = cbRole;
 	}
 
 	public JComboBox<String> getCbLanguage() {

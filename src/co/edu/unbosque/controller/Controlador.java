@@ -69,6 +69,9 @@ public class Controlador implements ActionListener {
 		vf.getvFactura().getBtnCancelar().addActionListener(this);
 		vf.getvFactura().getBtnCancelar().setActionCommand("boton_cancelar_compra");
 
+		vf.getvFactura().getBtnConfirmarCompra().addActionListener(this);
+		vf.getvFactura().getBtnConfirmarCompra().setActionCommand("boton_comprar");
+
 	}
 
 	public void run() {
@@ -155,14 +158,18 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_seguir_comprando": {
+			break;
+		}
+		case "boton_comprar": {
 			vf.getvFactura().dispose();
+			JOptionPane.showMessageDialog(null, "Compra realizada con éxito", "Factura", 1);
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
-		
+
 		case "boton_cancelar_compra": {
 			vf.getvFactura().dispose();
-// hacer metodo para limpiar la lista
+			JOptionPane.showMessageDialog(null, "Compra cancelada", "Compra  cancelada", 1);
 			vf.getvInicio().setVisible(true);
 		}
 
