@@ -64,7 +64,7 @@ public class VentanaFactura extends JDialog {
 		tablaFactura.setRowHeight(22);
 
 		textoProducto = new JLabel();
-		textoProducto.setBounds(45, 90, 520, 30);
+		textoProducto.setBounds(60, 90, 520, 30);
 		textoProducto.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		textoProducto.setForeground(Color.decode("#6E2C00"));
 		panel.add(textoProducto);

@@ -107,8 +107,21 @@ public class Controlador implements ActionListener {
 		case "boton_aceptar_helado": {
 			vf.getvHelado().dispose();
 			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Chocolate")) {
-				vf.getvFactura().getTextoProducto().setText("Helado chocolate");
+				vf.getvFactura().getTextoProducto().setText("Helado");
 			}
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Vainilla")) {
+				vf.getvFactura().getTextoProducto().setText("Helado");
+			}
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Fresa")) {
+				vf.getvFactura().getTextoProducto().setText("Helado");
+			}
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Cookies & Cream")) {
+				vf.getvFactura().getTextoProducto().setText("Helado");
+			}
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Mora")) {
+				vf.getvFactura().getTextoProducto().setText("Helado");
+			}
+
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
 			vf.getvFactura().setVisible(true);
@@ -129,7 +142,18 @@ public class Controlador implements ActionListener {
 
 		case "boton_aceptar_waffle": {
 			vf.getvWaffle().dispose();
+
+			if (vf.getvWaffle().getCbTipoWaffle().getSelectedItem().toString().equals("Dulce")) {
+				vf.getvFactura().getTextoProducto().setText("Waaffle");
+			}
+			if (vf.getvWaffle().getCbTipoWaffle().getSelectedItem().toString().equals("Salado")) {
+				vf.getvFactura().getTextoProducto().setText("Waaffle");
+			}
+
+			vf.getvFactura().revalidate();
+			vf.getvFactura().repaint();
 			vf.getvFactura().setVisible(true);
+
 			break;
 		}
 		case "boton_volver_waffle": {
