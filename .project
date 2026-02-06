@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/co/edu/unbosque/view/Adobe Express - file (2).jpg</name>
-			<type>1</type>
-			<location>C:/Users/Usuario/Downloads/Adobe Express - file (2).jpg</location>
-		</link>
-	</linkedResources>
 </projectDescription>

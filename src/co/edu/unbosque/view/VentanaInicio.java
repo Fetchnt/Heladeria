@@ -108,7 +108,7 @@ public class VentanaInicio extends JFrame {
 		btnExit.setBorderPainted(false);
 		panelOptions.add(btnExit);
 		
-		ImageIcon imageHelados = new ImageIcon(getClass().getResource("/co/edu/unbosque/view/Adobe Express - file (2).jpg"));
+		ImageIcon imageHelados = new ImageIcon(getClass().getResource("HeladosInicio.jpg"));
 		JLabel lHelados = new JLabel(imageHelados);
 		lHelados.setBounds(0, 139, 884, 472);
 		getContentPane().add(lHelados);
