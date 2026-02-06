@@ -21,6 +21,7 @@ public class VentanaFactura extends JDialog {
 	private JButton btnSeguirComprando;
 	private JButton btnConfirmarCompra;
 	private JButton btnCancelar;
+	private JLabel textoProducto;
 	private Properties prop;
 
 	public VentanaFactura() {
@@ -61,6 +62,12 @@ public class VentanaFactura extends JDialog {
 		tablaFactura.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
 		tablaFactura.getTableHeader().setFont(new Font("Comic Sans MS", Font.BOLD, 13));
 		tablaFactura.setRowHeight(22);
+
+		textoProducto = new JLabel();
+		textoProducto.setBounds(45, 90, 520, 30);
+		textoProducto.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		textoProducto.setForeground(Color.decode("#6E2C00"));
+		panel.add(textoProducto);
 
 		JScrollPane scroll = new JScrollPane(tablaFactura);
 		scroll.setBounds(30, 60, 460, 230);
@@ -174,6 +181,14 @@ public class VentanaFactura extends JDialog {
 
 	public void setProp(Properties prop) {
 		this.prop = prop;
+	}
+
+	public JLabel getTextoProducto() {
+		return textoProducto;
+	}
+
+	public void setTextoProducto(JLabel textoProducto) {
+		this.textoProducto = textoProducto;
 	}
 
 }

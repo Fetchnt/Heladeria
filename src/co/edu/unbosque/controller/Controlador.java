@@ -106,8 +106,16 @@ public class Controlador implements ActionListener {
 
 		case "boton_aceptar_helado": {
 			vf.getvHelado().dispose();
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Chocolate")) {
+				vf.getvFactura().getTextoProducto().setText("Helado chocolate");
+			}
+			vf.getvFactura().revalidate();
+			vf.getvFactura().repaint();
 			vf.getvFactura().setVisible(true);
+
+			break;
 		}
+
 		case "boton_volver_helado": {
 			vf.getvHelado().dispose();
 			vf.getvPrincipal().setVisible(true);
@@ -162,7 +170,7 @@ public class Controlador implements ActionListener {
 		}
 		case "boton_comprar": {
 			vf.getvFactura().dispose();
-			JOptionPane.showMessageDialog(null, "Compra realizada con éxito", "Factura", 1);
+			JOptionPane.showMessageDialog(null, "Compra realizada con éxito", "Compra exitosa", 1);
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
