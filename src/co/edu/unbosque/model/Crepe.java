@@ -49,10 +49,8 @@ public class Crepe extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n - Tipo de crepe: " + tipoDeCrepe + "\n Salsa: " + salsa + "\n======================================";
+		return super.toString() + "\n - Tipo de crepe: " + tipoDeCrepe + "\n Salsa: " + salsa
+				+ "\n======================================";
 	}
 
-	
-	
-	
 }

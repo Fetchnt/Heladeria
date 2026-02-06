@@ -23,7 +23,7 @@ public class VentanaSaborHelado extends JDialog {
 		setVisible(false);
 		initializeComponents();
 	}
-	
+
 	public VentanaSaborHelado(Properties prop) {
 		setProp(prop);
 		initializeComponents();
@@ -48,7 +48,7 @@ public class VentanaSaborHelado extends JDialog {
 		lblPregunta.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		lblPregunta.setForeground(Color.decode("#6E2C00"));
 		panel.add(lblPregunta);
-		
+
 		lblPrecio = new JLabel("Precio: $4.000 COP");
 		lblPrecio.setBounds(60, 105, 230, 20);
 		lblPrecio.setFont(new Font("Comic Sans MS", Font.ITALIC, 13));

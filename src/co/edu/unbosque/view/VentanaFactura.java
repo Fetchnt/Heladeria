@@ -97,7 +97,7 @@ public class VentanaFactura extends JDialog {
 		scroll.setBackground(Color.WHITE);
 		panel.add(scroll);
 
-		lblTotal = new JLabel("TOTAL: $0 COP");
+		lblTotal = new JLabel();
 		lblTotal.setBounds(30, 300, 300, 30);
 		lblTotal.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		lblTotal.setForeground(Color.decode("#7D6608"));

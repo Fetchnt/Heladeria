@@ -125,6 +125,8 @@ public class Controlador implements ActionListener {
 				vf.getvFactura().getTextoTipo().setText("Mora");
 			}
 
+			vf.getvFactura().getLblTotal().setText("Total: 4.000 $");
+			
 			vf.getvFactura().getTextoPrecio().setText("4.000");
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
@@ -156,6 +158,9 @@ public class Controlador implements ActionListener {
 				vf.getvFactura().getTextoProducto().setText("Waffle");
 				vf.getvFactura().getTextoTipo().setText("Salado");
 			}
+			
+			vf.getvFactura().getLblTotal().setText("Total: 6.000 $");
+			
 			vf.getvFactura().getTextoPrecio().setText("6.000");
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
@@ -213,8 +218,10 @@ public class Controlador implements ActionListener {
 			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Caramelo")) {
 				vf.getvFactura().getTextoDetalle().setText("Caramelo");
 			}
+			
+			vf.getvFactura().getLblTotal().setText("Total: 5.000 $");
 
-			vf.getvFactura().getTextoPrecio().setText("5.000");
+			vf.getvFactura().getTextoPrecio().setText("5000");
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
 			vf.getvFactura().setVisible(true);
@@ -228,6 +235,7 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_seguir_comprando": {
+
 			break;
 		}
 
