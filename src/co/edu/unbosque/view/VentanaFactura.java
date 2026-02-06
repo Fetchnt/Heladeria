@@ -19,6 +19,7 @@ public class VentanaFactura extends JDialog {
 	private JLabel lblTitulo;
 	private JLabel lblTotal;
 	private JButton btnSeguirComprando;
+	private JButton btnConfirmarCompra;
 	private JButton btnCancelar;
 	private Properties prop;
 
@@ -35,14 +36,14 @@ public class VentanaFactura extends JDialog {
 
 	private void initializeComponents() {
 		setTitle("Factura");
-		setSize(520, 420);
+		setSize(520, 460);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setModal(true);
 		setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 520, 420);
+		panel.setBounds(0, 0, 520, 460);
 		panel.setBackground(Color.decode("#FFF8E1"));
 		panel.setLayout(null);
 		add(panel);
@@ -62,26 +63,34 @@ public class VentanaFactura extends JDialog {
 		tablaFactura.setRowHeight(22);
 
 		JScrollPane scroll = new JScrollPane(tablaFactura);
-		scroll.setBounds(30, 60, 460, 220);
+		scroll.setBounds(30, 60, 460, 230);
 		scroll.setBackground(Color.WHITE);
 		panel.add(scroll);
 
 		lblTotal = new JLabel("TOTAL: $0 COP");
-		lblTotal.setBounds(30, 290, 300, 25);
-		lblTotal.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		lblTotal.setBounds(30, 300, 300, 30);
+		lblTotal.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		lblTotal.setForeground(Color.decode("#7D6608"));
 		panel.add(lblTotal);
 
-		btnSeguirComprando = new JButton("Comprar mÃ¡s");
-		btnSeguirComprando.setBounds(70, 330, 160, 35);
+		btnSeguirComprando = new JButton("Comprar más");
+		btnSeguirComprando.setBounds(30, 350, 150, 35);
 		btnSeguirComprando.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		btnSeguirComprando.setBackground(Color.decode("#FAD7A0"));
 		btnSeguirComprando.setForeground(Color.decode("#6E2C00"));
 		btnSeguirComprando.setFocusPainted(false);
 		panel.add(btnSeguirComprando);
 
+		btnConfirmarCompra = new JButton("Confirmar compra");
+		btnConfirmarCompra.setBounds(190, 350, 160, 35);
+		btnConfirmarCompra.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		btnConfirmarCompra.setBackground(Color.decode("#ABEBC6"));
+		btnConfirmarCompra.setForeground(Color.decode("#145A32"));
+		btnConfirmarCompra.setFocusPainted(false);
+		panel.add(btnConfirmarCompra);
+
 		btnCancelar = new JButton("Cancelar factura");
-		btnCancelar.setBounds(280, 330, 160, 35);
+		btnCancelar.setBounds(360, 350, 130, 35);
 		btnCancelar.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
 		btnCancelar.setBackground(Color.decode("#F5EFE7"));
 		btnCancelar.setForeground(Color.decode("#6E2C00"));
@@ -93,7 +102,9 @@ public class VentanaFactura extends JDialog {
 		setTitle(prop.getProperty("heladeria.dialog.factura.title"));
 		lblTitulo.setText(prop.getProperty("heladeria.dialog.factura.header"));
 		lblTotal.setText(prop.getProperty("heladeria.dialog.factura.total"));
+
 		btnSeguirComprando.setText(prop.getProperty("heladeria.dialog.factura.more"));
+		btnConfirmarCompra.setText(prop.getProperty("heladeria.dialog.factura.confirm"));
 		btnCancelar.setText(prop.getProperty("heladeria.dialog.factura.cancel"));
 
 		modeloFactura.setColumnIdentifiers(new Object[] { prop.getProperty("heladeria.factura.col.producto"),
@@ -139,6 +150,14 @@ public class VentanaFactura extends JDialog {
 
 	public void setBtnSeguirComprando(JButton btnSeguirComprando) {
 		this.btnSeguirComprando = btnSeguirComprando;
+	}
+
+	public JButton getBtnConfirmarCompra() {
+		return btnConfirmarCompra;
+	}
+
+	public void setBtnConfirmarCompra(JButton btnConfirmarCompra) {
+		this.btnConfirmarCompra = btnConfirmarCompra;
 	}
 
 	public JButton getBtnCancelar() {

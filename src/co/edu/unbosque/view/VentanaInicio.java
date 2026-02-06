@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.Properties;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -23,6 +24,7 @@ public class VentanaInicio extends JFrame {
 	private JButton btnExit;
 	private JComboBox<String> cbRole;
 	private JComboBox<String> cbLanguage;
+	private JLabel lHelados;
 
 	public VentanaInicio() {
 		initializeComponents();
@@ -105,6 +107,11 @@ public class VentanaInicio extends JFrame {
 		btnExit.setFocusPainted(false);
 		btnExit.setBorderPainted(false);
 		panelOptions.add(btnExit);
+		
+		lHelados = new JLabel();
+		lHelados.setIcon(new ImageIcon(VentanaInicio.class.getResource("/co/edu/unbosque/view/Adobe Express - file (2).jpg")));
+		lHelados.setBounds(0, 139, 884, 472);
+		getContentPane().add(lHelados);
 	}
 
 	public void aplicarInternacionalizacion(Properties prop) {
