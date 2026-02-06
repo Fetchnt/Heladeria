@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 
 public class VentanaCrepe extends JDialog {
 
-	
 	private JComboBox<String> cbTipoCrepe;
 	private JComboBox<String> cbSalsa;
 	private JButton btnAceptarCrepe;
