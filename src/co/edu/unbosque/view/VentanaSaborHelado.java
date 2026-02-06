@@ -55,7 +55,7 @@ public class VentanaSaborHelado extends JDialog {
 		lblPrecio.setForeground(Color.decode("#7D6608"));
 		panel.add(lblPrecio);
 
-		cbSabores = new JComboBox<>(new String[] { "Vainilla", "Chocolate", "Fresa", "Mora", "Cookies & Cream" });
+		cbSabores = new JComboBox<>(new String[] { "Vainilla", "Chocolate", "Fresa", "Mora", "Oreo" });
 		cbSabores.setBounds(60, 70, 230, 35);
 		cbSabores.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
 		panel.add(cbSabores);

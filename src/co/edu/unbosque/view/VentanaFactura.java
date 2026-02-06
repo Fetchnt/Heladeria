@@ -22,6 +22,8 @@ public class VentanaFactura extends JDialog {
 	private JButton btnConfirmarCompra;
 	private JButton btnCancelar;
 	private JLabel textoProducto;
+	private JLabel textoTipo;
+	private JLabel textoPrecio;
 	private Properties prop;
 
 	public VentanaFactura() {
@@ -62,12 +64,26 @@ public class VentanaFactura extends JDialog {
 		tablaFactura.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
 		tablaFactura.getTableHeader().setFont(new Font("Comic Sans MS", Font.BOLD, 13));
 		tablaFactura.setRowHeight(22);
+		tablaFactura.getTableHeader().setReorderingAllowed(false);
+		tablaFactura.getTableHeader().setResizingAllowed(false);
 
 		textoProducto = new JLabel();
 		textoProducto.setBounds(60, 90, 520, 30);
 		textoProducto.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		textoProducto.setForeground(Color.decode("#6E2C00"));
 		panel.add(textoProducto);
+
+		textoTipo = new JLabel();
+		textoTipo.setBounds(180, 90, 520, 30);
+		textoTipo.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		textoTipo.setForeground(Color.decode("#6E2C00"));
+		panel.add(textoTipo);
+
+		textoPrecio = new JLabel();
+		textoPrecio.setBounds(405, 90, 520, 30);
+		textoPrecio.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		textoPrecio.setForeground(Color.decode("#6E2C00"));
+		panel.add(textoPrecio);
 
 		JScrollPane scroll = new JScrollPane(tablaFactura);
 		scroll.setBounds(30, 60, 460, 230);
@@ -189,6 +205,22 @@ public class VentanaFactura extends JDialog {
 
 	public void setTextoProducto(JLabel textoProducto) {
 		this.textoProducto = textoProducto;
+	}
+
+	public JLabel getTextoPrecio() {
+		return textoPrecio;
+	}
+
+	public void setTextoPrecio(JLabel textoPrecio) {
+		this.textoPrecio = textoPrecio;
+	}
+
+	public JLabel getTextoTipo() {
+		return textoTipo;
+	}
+
+	public void setTextoTipo(JLabel textoTipo) {
+		this.textoTipo = textoTipo;
 	}
 
 }

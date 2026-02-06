@@ -108,20 +108,26 @@ public class Controlador implements ActionListener {
 			vf.getvHelado().dispose();
 			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Chocolate")) {
 				vf.getvFactura().getTextoProducto().setText("Helado");
+				vf.getvFactura().getTextoTipo().setText("Chocolate");
 			}
 			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Vainilla")) {
 				vf.getvFactura().getTextoProducto().setText("Helado");
+				vf.getvFactura().getTextoTipo().setText("Vainilla");
 			}
 			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Fresa")) {
 				vf.getvFactura().getTextoProducto().setText("Helado");
+				vf.getvFactura().getTextoTipo().setText("Fresa");
 			}
-			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Cookies & Cream")) {
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Oreo")) {
 				vf.getvFactura().getTextoProducto().setText("Helado");
+				vf.getvFactura().getTextoTipo().setText("Oreo");
 			}
 			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Mora")) {
 				vf.getvFactura().getTextoProducto().setText("Helado");
+				vf.getvFactura().getTextoTipo().setText("Mora");
 			}
 
+			vf.getvFactura().getTextoPrecio().setText("4.000");
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
 			vf.getvFactura().setVisible(true);
@@ -144,11 +150,15 @@ public class Controlador implements ActionListener {
 			vf.getvWaffle().dispose();
 
 			if (vf.getvWaffle().getCbTipoWaffle().getSelectedItem().toString().equals("Dulce")) {
-				vf.getvFactura().getTextoProducto().setText("Waaffle");
+				vf.getvFactura().getTextoProducto().setText("Waffle");
+				vf.getvFactura().getTextoTipo().setText("Dulce");
 			}
 			if (vf.getvWaffle().getCbTipoWaffle().getSelectedItem().toString().equals("Salado")) {
-				vf.getvFactura().getTextoProducto().setText("Waaffle");
+				vf.getvFactura().getTextoProducto().setText("Waffle");
+				vf.getvFactura().getTextoTipo().setText("Salado");
 			}
+
+			vf.getvFactura().getTextoPrecio().setText("6.000");
 
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
@@ -180,6 +190,13 @@ public class Controlador implements ActionListener {
 		}
 		case "boton_aceptar_crepe": {
 			vf.getvCrepe().dispose();
+			vf.getvFactura().getTextoProducto().setText("Crepe");
+			vf.getvFactura().getTextoProducto().setText("Crepe");
+
+			vf.getvFactura().getTextoPrecio().setText("5.000");
+
+			vf.getvFactura().revalidate();
+			vf.getvFactura().repaint();
 			vf.getvFactura().setVisible(true);
 			break;
 		}
