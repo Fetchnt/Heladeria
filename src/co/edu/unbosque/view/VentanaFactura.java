@@ -18,7 +18,6 @@ public class VentanaFactura extends JDialog {
 	private DefaultTableModel modeloFactura;
 	private JLabel lblTitulo;
 	private JLabel lblTotal;
-	private JButton btnSeguirComprando;
 	private JButton btnConfirmarCompra;
 	private JButton btnCancelar;
 	private JLabel textoProducto;
@@ -103,16 +102,8 @@ public class VentanaFactura extends JDialog {
 		lblTotal.setForeground(Color.decode("#7D6608"));
 		panel.add(lblTotal);
 
-		btnSeguirComprando = new JButton("Comprar más");
-		btnSeguirComprando.setBounds(30, 350, 150, 35);
-		btnSeguirComprando.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-		btnSeguirComprando.setBackground(Color.decode("#FAD7A0"));
-		btnSeguirComprando.setForeground(Color.decode("#6E2C00"));
-		btnSeguirComprando.setFocusPainted(false);
-		panel.add(btnSeguirComprando);
-
 		btnConfirmarCompra = new JButton("Confirmar compra");
-		btnConfirmarCompra.setBounds(190, 350, 160, 35);
+		btnConfirmarCompra.setBounds(70, 350, 160, 35);
 		btnConfirmarCompra.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		btnConfirmarCompra.setBackground(Color.decode("#ABEBC6"));
 		btnConfirmarCompra.setForeground(Color.decode("#145A32"));
@@ -120,10 +111,10 @@ public class VentanaFactura extends JDialog {
 		panel.add(btnConfirmarCompra);
 
 		btnCancelar = new JButton("Cancelar factura");
-		btnCancelar.setBounds(360, 350, 130, 35);
+		btnCancelar.setBounds(290, 350, 150, 35);
 		btnCancelar.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-		btnCancelar.setBackground(Color.decode("#F5EFE7"));
-		btnCancelar.setForeground(Color.decode("#6E2C00"));
+		btnCancelar.setBackground(Color.RED);
+		btnCancelar.setForeground(Color.WHITE);
 		btnCancelar.setFocusPainted(false);
 		panel.add(btnCancelar);
 	}
@@ -132,8 +123,6 @@ public class VentanaFactura extends JDialog {
 		setTitle(prop.getProperty("heladeria.dialog.factura.title"));
 		lblTitulo.setText(prop.getProperty("heladeria.dialog.factura.header"));
 		lblTotal.setText(prop.getProperty("heladeria.dialog.factura.total"));
-
-		btnSeguirComprando.setText(prop.getProperty("heladeria.dialog.factura.more"));
 		btnConfirmarCompra.setText(prop.getProperty("heladeria.dialog.factura.confirm"));
 		btnCancelar.setText(prop.getProperty("heladeria.dialog.factura.cancel"));
 
@@ -172,14 +161,6 @@ public class VentanaFactura extends JDialog {
 
 	public void setLblTotal(JLabel lblTotal) {
 		this.lblTotal = lblTotal;
-	}
-
-	public JButton getBtnSeguirComprando() {
-		return btnSeguirComprando;
-	}
-
-	public void setBtnSeguirComprando(JButton btnSeguirComprando) {
-		this.btnSeguirComprando = btnSeguirComprando;
 	}
 
 	public JButton getBtnConfirmarCompra() {

@@ -61,9 +61,6 @@ public class Controlador implements ActionListener {
 		vf.getvCrepe().getBtnCancelarCrepe().addActionListener(this);
 		vf.getvCrepe().getBtnCancelarCrepe().setActionCommand("boton_volver_crepe");
 
-		vf.getvFactura().getBtnSeguirComprando().addActionListener(this);
-		vf.getvFactura().getBtnSeguirComprando().setActionCommand("boton_seguir_comprando");
-
 		vf.getvFactura().getBtnCancelar().addActionListener(this);
 		vf.getvFactura().getBtnCancelar().setActionCommand("boton_cancelar_compra");
 
@@ -126,7 +123,7 @@ public class Controlador implements ActionListener {
 			}
 
 			vf.getvFactura().getLblTotal().setText("Total: 4.000 $");
-			
+
 			vf.getvFactura().getTextoPrecio().setText("4.000");
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
@@ -158,9 +155,9 @@ public class Controlador implements ActionListener {
 				vf.getvFactura().getTextoProducto().setText("Waffle");
 				vf.getvFactura().getTextoTipo().setText("Salado");
 			}
-			
+
 			vf.getvFactura().getLblTotal().setText("Total: 6.000 $");
-			
+
 			vf.getvFactura().getTextoPrecio().setText("6.000");
 			vf.getvFactura().revalidate();
 			vf.getvFactura().repaint();
@@ -218,7 +215,7 @@ public class Controlador implements ActionListener {
 			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Caramelo")) {
 				vf.getvFactura().getTextoDetalle().setText("Caramelo");
 			}
-			
+
 			vf.getvFactura().getLblTotal().setText("Total: 5.000 $");
 
 			vf.getvFactura().getTextoPrecio().setText("5000");
@@ -240,9 +237,23 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_comprar": {
+
+			String producto = vf.getvFactura().getTextoProducto().getText();
+			String tipo = vf.getvFactura().getTextoTipo().getText();
+			String detalle = vf.getvFactura().getTextoDetalle().getText();
+			String precio = vf.getvFactura().getTextoPrecio().getText();
+
+			String mensaje = "Compra realizada con éxito \n" + "Producto: " + producto + "\n" + "Tipo: " + tipo + "\n";
+
+			if (detalle != null && !detalle.isEmpty()) {
+				mensaje += "Detalle: " + detalle + "\n";
+			}
+
+			mensaje += "Precio: $" + precio;
+
 			vf.getvFactura().dispose();
-			JOptionPane.showMessageDialog(null, "Compra realizada con éxito", "Compra exitosa", 1);
-			vf.getvPrincipal().setVisible(true);
+			JOptionPane.showMessageDialog(null, mensaje, "Compra exitosa", JOptionPane.INFORMATION_MESSAGE);
+			vf.getvInicio().setVisible(true);
 			break;
 		}
 
