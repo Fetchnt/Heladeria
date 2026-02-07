@@ -4,8 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Properties;
 import javax.swing.JOptionPane;
+
+import co.edu.unbosque.model.CrepeDTO;
+import co.edu.unbosque.model.HeladoDTO;
 import co.edu.unbosque.model.ModelFacade;
+import co.edu.unbosque.model.WaffleDTO;
+import co.edu.unbosque.model.persistence.CrepeDAO;
 import co.edu.unbosque.model.persistence.FileHandler;
+import co.edu.unbosque.model.persistence.HeladoDAO;
+import co.edu.unbosque.model.persistence.WaffleDAO;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
@@ -13,12 +20,18 @@ public class Controlador implements ActionListener {
 	private ViewFacade vf;
 	private ModelFacade mf;
 	private Properties prop;
+	private HeladoDAO heladoDAO;
+	private WaffleDAO waffleDAO;
+	private CrepeDAO crepeDAO;
 
 	public Controlador() {
 		prop = FileHandler.cargarArchivoPropiedades("esp.properties");
 		mf = new ModelFacade();
 		vf = new ViewFacade(prop);
 		mf.escribirArchivoDeTexto();
+		heladoDAO = new HeladoDAO();
+		waffleDAO = new WaffleDAO();
+		crepeDAO = new CrepeDAO();
 	}
 
 	public void asignarListeners() {
@@ -241,15 +254,51 @@ public class Controlador implements ActionListener {
 			String producto = vf.getvFactura().getTextoProducto().getText();
 			String tipo = vf.getvFactura().getTextoTipo().getText();
 			String detalle = vf.getvFactura().getTextoDetalle().getText();
-			String precio = vf.getvFactura().getTextoPrecio().getText();
+			String precioTxt = vf.getvFactura().getTextoPrecio().getText();
 
-			String mensaje = "Compra realizada con éxito \n" + "Producto: " + producto + "\n" + "Tipo: " + tipo + "\n";
+			int precio = Integer.parseInt(precioTxt.replace(".", ""));
+
+			if (producto.equalsIgnoreCase("Helado")) {
+				HeladoDTO dto = new HeladoDTO();
+				dto.setNombreProducto(producto);
+				dto.setSaborBolas(tipo);
+				dto.setPrecioProducto(precio);
+				dto.setCantidadProducto(1);
+
+				heladoDAO.crear(dto);
+			}
+
+			if (producto.equalsIgnoreCase("Waffle")) {
+				WaffleDTO dto = new WaffleDTO();
+				dto.setNombreProducto(producto);
+				dto.setTipoDeWaffle(tipo);
+				dto.setPrecioProducto(precio);
+				dto.setCantidadProducto(1);
+
+				waffleDAO.crear(dto);
+			}
+
+			if (producto.equalsIgnoreCase("Crepe")) {
+				CrepeDTO dto = new CrepeDTO();
+				dto.setNombreProducto(producto);
+				dto.setTipoDeCrepe(tipo);
+				dto.setPrecioProducto(precio);
+				dto.setCantidadProducto(1);
+
+				if (detalle != null && !detalle.isEmpty()) {
+					dto.setSalsa(detalle);
+				}
+
+				crepeDAO.crear(dto);
+			}
+
+			String mensaje = "Compra realizada con éxito\n" + "Producto: " + producto + "\n" + "Tipo: " + tipo + "\n";
 
 			if (detalle != null && !detalle.isEmpty()) {
 				mensaje += "Detalle: " + detalle + "\n";
 			}
 
-			mensaje += "Precio: $" + precio;
+			mensaje += "Precio: $" + precioTxt;
 
 			vf.getvFactura().dispose();
 			JOptionPane.showMessageDialog(null, mensaje, "Compra exitosa", JOptionPane.INFORMATION_MESSAGE);

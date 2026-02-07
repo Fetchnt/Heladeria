@@ -12,24 +12,16 @@ import java.util.Scanner;
 
 public class FileHandler {
 
-	// Archivos de texto
 	public static File archivo;
 	public static PrintWriter escritor;
 	public static Scanner lector;
-
-	// Serializado: capacidad de confertir un objeto a material binario para poder
 	public static FileInputStream fis;
 	public static ObjectInputStream ois;
 	public static FileOutputStream fos;
 	public static ObjectOutputStream oos;
-
-	// Propiedades
 	public static Properties prop;
 
-	// Es obligatorio que exista el archivo serializado antes de leer
-
 	public static void escribirEnArchivoTexto(String url, String contenido) {
-		// Verificar url del archivo
 		try {
 			archivo = new File(url);
 			if (!archivo.exists()) {
@@ -37,12 +29,10 @@ public class FileHandler {
 			}
 			escritor = new PrintWriter(archivo);
 			escritor.println(contenido);
-			// solo un aplicativo al tiempo puede tener un archivo abierto al tiempo
 			escritor.close();
 		} catch (IOException e) {
 			System.err.println("Error al crear y escribir el archivo de texto.");
 			System.out.println(e.getMessage());
-			// e.printStackTrace();
 		}
 	}
 
@@ -55,7 +45,7 @@ public class FileHandler {
 
 			lector = new Scanner(archivo);
 			String contenido = "";
-			while (lector.hasNext()) { // Verifica que la siguiente linea tenga contenido y lo continua leyendo
+			while (lector.hasNext()) {
 				contenido += lector.nextLine() + "\n";
 			}
 			lector.close();
@@ -64,7 +54,6 @@ public class FileHandler {
 		} catch (IOException e) {
 			System.err.println("Error al leer el archivo de texto.");
 			System.out.println(e.getMessage());
-			// e.printStackTrace();
 		}
 		return null;
 	}
@@ -78,25 +67,23 @@ public class FileHandler {
 			fos = new FileOutputStream(archivo);
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(contenido);
-			// primero cerrar object y despues file
 			oos.close();
 			fos.close();
 
 		} catch (IOException e) {
 			System.err.println("Error al escribir el archivo serializado.");
 			e.printStackTrace();
-
-			// Se indica a las clases padres e hijas que tienen la capacidad de
-			// serializacion, y todo se hace en el modelo
 		}
 	}
 
 	public static Object leerDesdeArchivoSerializado(String url) {
 		try {
 			archivo = new File(url);
-			if (!archivo.exists()) {
-				archivo.createNewFile();
+
+			if (!archivo.exists() || archivo.length() == 0) {
+				return null;
 			}
+
 			fis = new FileInputStream(archivo);
 			ois = new ObjectInputStream(fis);
 			Object contenido = ois.readObject();
@@ -129,7 +116,6 @@ public class FileHandler {
 			System.err.println("Error al cargar el archivo de propiedades.");
 			e.printStackTrace();
 		}
-		// LAS PROPIEDADES SE CARGAN EN EL CONTROLADOR, NO EN EL DAO
 		return null;
 	}
 }
