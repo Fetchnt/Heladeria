@@ -11,6 +11,7 @@ public class ViewFacade {
 	private VentanaSaborHelado vHelado;
 	private VentanaWaffle vWaffle;
 	private VentanaSans vSans;
+	private VentanaGuardado vGuardado;
 
 	public ViewFacade() {
 	}
@@ -23,6 +24,7 @@ public class ViewFacade {
 		vHelado = new VentanaSaborHelado(prop);
 		vWaffle = new VentanaWaffle(prop);
 		vSans = new VentanaSans(prop);
+		vGuardado = new VentanaGuardado(prop);
 
 	}
 
@@ -33,6 +35,8 @@ public class ViewFacade {
 		vPrincipal.aplicarInternacionalizacion(prop);
 		vHelado.aplicarInternacionalizacion(prop);
 		vWaffle.aplicarInternacionalizacion(prop);
+		vSans.aplicarInternacionalizacion(prop);
+		vGuardado.aplicarInternacionalizacion(prop);
 	}
 
 	public VentanaInicio getvInicio() {
@@ -90,5 +94,14 @@ public class ViewFacade {
 	public void setvSans(VentanaSans vSans) {
 		this.vSans = vSans;
 	}
+
+	public VentanaGuardado getvGuardado() {
+		return vGuardado;
+	}
+
+	public void setvGuardado(VentanaGuardado vGuardado) {
+		this.vGuardado = vGuardado;
+	}
+	
 
 }

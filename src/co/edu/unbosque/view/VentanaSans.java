@@ -16,6 +16,7 @@ public class VentanaSans extends JFrame {
 	private JLabel dialogoSans;
 	private JLabel dialogoSansDos;
 	private JButton botonSans;
+	private JButton botonGuardado;
 	private JButton botonVolver;
 
 	public VentanaSans() {
@@ -45,8 +46,16 @@ public class VentanaSans extends JFrame {
 		botonSans.setFocusPainted(false);
 		this.add(botonSans);
 
+		ImageIcon iconoOriginalg = new ImageIcon(getClass().getResource("guardado.jpg"));
+		Image imagenEscaladag = iconoOriginalg.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+		ImageIcon iconoFinalg = new ImageIcon(imagenEscaladag);
+		botonGuardado = new JButton(iconoFinalg);
+		botonGuardado.setBounds(550, 300, 200, 100);
+		botonGuardado.setFocusPainted(false);
+		this.add(botonGuardado);
+
 		titulo = new JLabel("Haz click!");
-		titulo.setBounds(170, 20, 200, 100);
+		titulo.setBounds(150, 20, 250, 100);
 		titulo.setForeground(Color.BLACK);
 		titulo.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
 		add(titulo);
@@ -57,12 +66,12 @@ public class VentanaSans extends JFrame {
 		dialogoSans.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		add(dialogoSans);
 
-		dialogoSansDos = new JLabel(" heladería te llena de determinación... ");
+		dialogoSansDos = new JLabel(" heladeria ");
 		dialogoSansDos.setBounds(480, 170, 400, 100);
 		dialogoSansDos.setForeground(Color.BLACK);
 		dialogoSansDos.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		add(dialogoSansDos);
-		
+
 		botonVolver = new JButton("VOLVER");
 		botonVolver.setBounds(385, 540, 100, 40);
 		botonVolver.setBackground(Color.decode("#042F6D"));
@@ -72,6 +81,14 @@ public class VentanaSans extends JFrame {
 		botonVolver.setBorderPainted(false);
 		add(botonVolver);
 
+	}
+
+	public void aplicarInternacionalizacion(Properties prop) {
+		setTitle(prop.getProperty("heladeria.sans.titulo"));
+		titulo.setText(prop.getProperty("heladeria.sans.click"));
+		dialogoSans.setText(prop.getProperty("heladeria.sans.dialogo"));
+		dialogoSansDos.setText(prop.getProperty("heladeria.sans.dialogoDos"));
+		botonVolver.setText(prop.getProperty("heladeria.sans.volver"));
 	}
 
 	public Properties getProp() {
@@ -98,6 +115,14 @@ public class VentanaSans extends JFrame {
 		this.botonSans = botonSans;
 	}
 
+	public JButton getBotonGuardado() {
+		return botonGuardado;
+	}
+
+	public void setBotonGuardado(JButton botonGuardado) {
+		this.botonGuardado = botonGuardado;
+	}
+
 	public JLabel getDialogoSans() {
 		return dialogoSans;
 	}
@@ -121,7 +146,5 @@ public class VentanaSans extends JFrame {
 	public void setBotonVolver(JButton botonVolver) {
 		this.botonVolver = botonVolver;
 	}
-	
-	
 
 }
