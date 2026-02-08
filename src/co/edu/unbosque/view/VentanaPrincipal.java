@@ -55,7 +55,7 @@ public class VentanaPrincipal extends JFrame {
 		textoHelado = new JLabel("Helado");
 		textoHelado.setBounds(115, 430, 200, 100);
 		textoHelado.setForeground(Color.BLACK);
-		textoHelado.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
+		textoHelado.setFont(new Font("Arial", Font.BOLD, 33));
 		add(textoHelado);
 
 		ImageIcon iconoOriginalw = new ImageIcon(getClass().getResource("waffles.jpg"));
@@ -69,7 +69,7 @@ public class VentanaPrincipal extends JFrame {
 		textoWaffles = new JLabel("Waffles");
 		textoWaffles.setBounds(355, 430, 200, 100);
 		textoWaffles.setForeground(Color.BLACK);
-		textoWaffles.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
+		textoWaffles.setFont(new Font("Arial", Font.BOLD, 33));
 		add(textoWaffles);
 
 		ImageIcon iconoOriginalc = new ImageIcon(getClass().getResource("creps.jpg"));
@@ -83,7 +83,7 @@ public class VentanaPrincipal extends JFrame {
 		textoCrepes = new JLabel("Crepes");
 		textoCrepes.setBounds(620, 430, 200, 100);
 		textoCrepes.setForeground(Color.BLACK);
-		textoCrepes.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
+		textoCrepes.setFont(new Font("Arial", Font.BOLD, 33));
 		add(textoCrepes);
 
 		panelGris = new JPanel();
@@ -95,13 +95,13 @@ public class VentanaPrincipal extends JFrame {
 		textoInicio = new JLabel("Seleccione su producto", JLabel.CENTER);
 		textoInicio.setBounds(0, 20, 900, 80);
 		textoInicio.setForeground(Color.decode("#D35400"));
-		textoInicio.setFont(new Font("Comic Sans MS", Font.BOLD, 48));
+		textoInicio.setFont(new Font("Arial", Font.BOLD, 48));
 		panelGris.add(textoInicio);
 
 		botonVolver = new JButton("VOLVER");
 		botonVolver.setBounds(385, 540, 100, 40);
 		botonVolver.setBackground(Color.decode("#042F6D"));
-		botonVolver.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		botonVolver.setFont(new Font("Arial", Font.BOLD, 12));
 		botonVolver.setForeground(Color.WHITE);
 		botonVolver.setFocusPainted(false);
 		botonVolver.setBorderPainted(false);
@@ -111,7 +111,7 @@ public class VentanaPrincipal extends JFrame {
 		botonPollo.setBounds(760, 170, 80, 30);
 		botonPollo.setBackground(Color.RED);
 		botonPollo.setForeground(Color.YELLOW);
-		botonPollo.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		botonPollo.setFont(new Font("Arial", Font.BOLD, 12));
 		botonPollo.setFocusPainted(false);
 		botonPollo.setBorderPainted(false);
 		add(botonPollo);

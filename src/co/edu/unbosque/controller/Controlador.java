@@ -71,18 +71,6 @@ public class Controlador implements ActionListener {
 		vf.getvFactura().getBtnConfirmarCompra().addActionListener(this);
 		vf.getvFactura().getBtnConfirmarCompra().setActionCommand("boton_comprar");
 
-		vf.getvSans().getBotonSans().addActionListener(this);
-		vf.getvSans().getBotonSans().setActionCommand("boton_sans");
-
-		vf.getvSans().getBotonVolver().addActionListener(this);
-		vf.getvSans().getBotonVolver().setActionCommand("boton_volver_sans");
-
-		vf.getvSans().getBotonGuardado().addActionListener(this);
-		vf.getvSans().getBotonGuardado().setActionCommand("boton_sans_guardado");
-
-		vf.getvGuardado().getBotonVolver().addActionListener(this);
-		vf.getvGuardado().getBotonVolver().setActionCommand("boton_guardado_volver");
-
 	}
 
 	public void run() {
@@ -217,34 +205,6 @@ public class Controlador implements ActionListener {
 		case "boton_pollo": {
 			vf.getvPrincipal().dispose();
 			JOptionPane.showMessageDialog(null, prop.getProperty("h.pollo.dimelo"), prop.getProperty("h.errorrrr"), 0);
-			// vf.getvSans().getDialogoSans().setVisible(false);
-			// vf.getvSans().getDialogoSansDos().setVisible(false);
-			// vf.getvSans().getBotonGuardado().setVisible(false);
-			// vf.getvSans().setVisible(true);
-			vf.getvPrincipal().setVisible(true);
-			break;
-		}
-
-		case "boton_sans": {
-			vf.getvSans().getDialogoSans().setVisible(true);
-			vf.getvSans().getDialogoSansDos().setVisible(true);
-			vf.getvSans().getBotonGuardado().setVisible(true);
-			break;
-		}
-
-		case "boton_sans_guardado": {
-			vf.getvSans().setVisible(false);
-			vf.getvGuardado().setVisible(true);
-			break;
-		}
-
-		case "boton_guardado_volver": {
-			vf.getvGuardado().dispose();
-			vf.getvPrincipal().setVisible(true);
-			break;
-		}
-		case "boton_volver_sans": {
-			vf.getvSans().dispose();
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}

@@ -45,24 +45,24 @@ public class VentanaWaffle extends JDialog {
 
 		lblPregunta = new JLabel("¿Cómo deseas tu waffle?");
 		lblPregunta.setBounds(40, 20, 300, 30);
-		lblPregunta.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		lblPregunta.setFont(new Font("Arial", Font.BOLD, 18));
 		lblPregunta.setForeground(Color.decode("#6E2C00"));
 		panel.add(lblPregunta);
 
 		cbTipoWaffle = new JComboBox<>(new String[] { "Dulce", "Salado" });
 		cbTipoWaffle.setBounds(60, 70, 230, 35);
-		cbTipoWaffle.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
+		cbTipoWaffle.setFont(new Font("Arial", Font.PLAIN, 15));
 		panel.add(cbTipoWaffle);
 
 		lblPrecio = new JLabel("Precio: $6.000 COP");
 		lblPrecio.setBounds(60, 105, 230, 20);
-		lblPrecio.setFont(new Font("Comic Sans MS", Font.ITALIC, 13));
+		lblPrecio.setFont(new Font("Arial", Font.ITALIC, 13));
 		lblPrecio.setForeground(Color.decode("#7D6608"));
 		panel.add(lblPrecio);
 
 		btnAceptarWaffle = new JButton("Aceptar");
 		btnAceptarWaffle.setBounds(60, 130, 100, 30);
-		btnAceptarWaffle.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		btnAceptarWaffle.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAceptarWaffle.setBackground(Color.decode("#FAD7A0"));
 		btnAceptarWaffle.setForeground(Color.decode("#6E2C00"));
 		btnAceptarWaffle.setFocusPainted(false);
@@ -70,7 +70,7 @@ public class VentanaWaffle extends JDialog {
 
 		btnCancelarWaffle = new JButton("Cancelar");
 		btnCancelarWaffle.setBounds(190, 130, 100, 30);
-		btnCancelarWaffle.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		btnCancelarWaffle.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnCancelarWaffle.setBackground(Color.decode("#F5EFE7"));
 		btnCancelarWaffle.setForeground(Color.decode("#6E2C00"));
 		btnCancelarWaffle.setFocusPainted(false);

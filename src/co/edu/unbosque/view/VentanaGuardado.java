@@ -37,13 +37,13 @@ public class VentanaGuardado extends JFrame {
 		dialogo = new JLabel("*La heladeria te llena de determinacion ");
 		dialogo.setBounds(75, 0, 550, 80);
 		dialogo.setForeground(Color.BLACK);
-		dialogo.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		dialogo.setFont(new Font("Arial", Font.BOLD, 20));
 		add(dialogo);
 		
 		botonVolver = new JButton("VOLVER");
 		botonVolver.setBounds(230, 100, 100, 40);
 		botonVolver.setBackground(Color.decode("#042F6D"));
-		botonVolver.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		botonVolver.setFont(new Font("Arial", Font.BOLD, 12));
 		botonVolver.setForeground(Color.WHITE);
 		botonVolver.setFocusPainted(false);
 		botonVolver.setBorderPainted(false);

@@ -53,7 +53,7 @@ public class VentanaFactura extends JDialog {
 
 		lblTitulo = new JLabel("Factura de compra", JLabel.CENTER);
 		lblTitulo.setBounds(0, 15, 520, 30);
-		lblTitulo.setFont(new Font("Comic Sans MS", Font.BOLD, 22));
+		lblTitulo.setFont(new Font("Arial", Font.BOLD, 22));
 		lblTitulo.setForeground(Color.decode("#6E2C00"));
 		panel.add(lblTitulo);
 
@@ -61,33 +61,33 @@ public class VentanaFactura extends JDialog {
 		modeloFactura = new DefaultTableModel(columnas, 0);
 
 		tablaFactura = new JTable(modeloFactura);
-		tablaFactura.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
-		tablaFactura.getTableHeader().setFont(new Font("Comic Sans MS", Font.BOLD, 13));
+		tablaFactura.setFont(new Font("Arial", Font.PLAIN, 13));
+		tablaFactura.getTableHeader().setFont(new Font("Arial", Font.BOLD, 13));
 		tablaFactura.setRowHeight(22);
 		tablaFactura.getTableHeader().setReorderingAllowed(false);
 		tablaFactura.getTableHeader().setResizingAllowed(false);
 
 		textoProducto = new JLabel();
 		textoProducto.setBounds(60, 90, 520, 30);
-		textoProducto.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		textoProducto.setFont(new Font("Arial", Font.BOLD, 15));
 		textoProducto.setForeground(Color.decode("#6E2C00"));
 		panel.add(textoProducto);
 
 		textoDetalle = new JLabel();
 		textoDetalle.setBounds(290, 90, 520, 30);
-		textoDetalle.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		textoDetalle.setFont(new Font("Arial", Font.BOLD, 15));
 		textoDetalle.setForeground(Color.decode("#6E2C00"));
 		panel.add(textoDetalle);
 
 		textoTipo = new JLabel();
 		textoTipo.setBounds(175, 90, 520, 30);
-		textoTipo.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		textoTipo.setFont(new Font("Arial", Font.BOLD, 15));
 		textoTipo.setForeground(Color.decode("#6E2C00"));
 		panel.add(textoTipo);
 
 		textoPrecio = new JLabel();
 		textoPrecio.setBounds(405, 90, 520, 30);
-		textoPrecio.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		textoPrecio.setFont(new Font("Arial", Font.BOLD, 15));
 		textoPrecio.setForeground(Color.decode("#6E2C00"));
 		panel.add(textoPrecio);
 
@@ -98,13 +98,13 @@ public class VentanaFactura extends JDialog {
 
 		lblTotal = new JLabel();
 		lblTotal.setBounds(30, 300, 300, 30);
-		lblTotal.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		lblTotal.setFont(new Font("Arial", Font.BOLD, 20));
 		lblTotal.setForeground(Color.decode("#7D6608"));
 		panel.add(lblTotal);
 
 		btnConfirmarCompra = new JButton("Confirmar compra");
 		btnConfirmarCompra.setBounds(70, 350, 160, 35);
-		btnConfirmarCompra.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		btnConfirmarCompra.setFont(new Font("Arial", Font.BOLD, 14));
 		btnConfirmarCompra.setBackground(Color.decode("#ABEBC6"));
 		btnConfirmarCompra.setForeground(Color.decode("#145A32"));
 		btnConfirmarCompra.setFocusPainted(false);
@@ -112,7 +112,7 @@ public class VentanaFactura extends JDialog {
 
 		btnCancelar = new JButton("Cancelar factura");
 		btnCancelar.setBounds(290, 350, 150, 35);
-		btnCancelar.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		btnCancelar.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnCancelar.setBackground(Color.RED);
 		btnCancelar.setForeground(Color.WHITE);
 		btnCancelar.setFocusPainted(false);

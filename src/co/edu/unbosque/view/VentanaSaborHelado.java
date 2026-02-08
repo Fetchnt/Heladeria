@@ -45,24 +45,24 @@ public class VentanaSaborHelado extends JDialog {
 
 		lblPregunta = new JLabel("¿Qué sabor te gustaría?");
 		lblPregunta.setBounds(40, 20, 300, 30);
-		lblPregunta.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		lblPregunta.setFont(new Font("Arial", Font.BOLD, 18));
 		lblPregunta.setForeground(Color.decode("#6E2C00"));
 		panel.add(lblPregunta);
 
 		lblPrecio = new JLabel("Precio: $4.000 COP");
 		lblPrecio.setBounds(60, 105, 230, 20);
-		lblPrecio.setFont(new Font("Comic Sans MS", Font.ITALIC, 13));
+		lblPrecio.setFont(new Font("Arial", Font.ITALIC, 13));
 		lblPrecio.setForeground(Color.decode("#7D6608"));
 		panel.add(lblPrecio);
 
 		cbSabores = new JComboBox<>(new String[] { "Vainilla", "Chocolate", "Fresa", "Mora", "Oreo" });
 		cbSabores.setBounds(60, 70, 230, 35);
-		cbSabores.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
+		cbSabores.setFont(new Font("Arial", Font.PLAIN, 15));
 		panel.add(cbSabores);
 
 		btnAceptarHelado = new JButton("Aceptar");
 		btnAceptarHelado.setBounds(60, 130, 100, 30);
-		btnAceptarHelado.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		btnAceptarHelado.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAceptarHelado.setBackground(Color.decode("#FAD7A0"));
 		btnAceptarHelado.setForeground(Color.decode("#6E2C00"));
 		btnAceptarHelado.setFocusPainted(false);
@@ -70,7 +70,7 @@ public class VentanaSaborHelado extends JDialog {
 
 		btnCancelarHelado = new JButton("Cancelar");
 		btnCancelarHelado.setBounds(190, 130, 100, 30);
-		btnCancelarHelado.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		btnCancelarHelado.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnCancelarHelado.setBackground(Color.decode("#F5EFE7"));
 		btnCancelarHelado.setForeground(Color.decode("#6E2C00"));
 		btnCancelarHelado.setFocusPainted(false);

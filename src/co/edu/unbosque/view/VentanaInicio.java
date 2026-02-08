@@ -51,7 +51,7 @@ public class VentanaInicio extends JFrame {
 
 		lTitle = new JLabel("Heladeria", JLabel.CENTER);
 		lTitle.setBounds(0, 35, panelHeader.getWidth(), 60);
-		lTitle.setFont(new Font("Comic Sans MS", Font.BOLD, 56));
+		lTitle.setFont(new Font("Arial", Font.BOLD, 56));
 		lTitle.setForeground(Color.decode("#D35400"));
 		panelHeader.add(lTitle);
 
@@ -63,23 +63,23 @@ public class VentanaInicio extends JFrame {
 
 		lWelcome = new JLabel("Bienvenido");
 		lWelcome.setBounds(95, 20, 200, 30);
-		lWelcome.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
+		lWelcome.setFont(new Font("Arial", Font.BOLD, 30));
 		lWelcome.setForeground(Color.decode("#6E2C00"));
 		panelOptions.add(lWelcome);
 
 		lRoleHint = new JLabel("Seleccione el idioma:");
 		lRoleHint.setBounds(30, 70, 200, 28);
-		lRoleHint.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		lRoleHint.setFont(new Font("Arial", Font.PLAIN, 20));
 		panelOptions.add(lRoleHint);
 
 		cbLanguage = new JComboBox<>(new String[] { "Español", "English", "Francais"});
 		cbLanguage.setBounds(30, 110, 280, 35);
-		cbLanguage.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
+		cbLanguage.setFont(new Font("Arial", Font.PLAIN, 15));
 		panelOptions.add(cbLanguage);
 
 		btnAccess = new JButton("Continuar");
 		btnAccess.setBounds(30, 190, 280, 40);
-		btnAccess.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		btnAccess.setFont(new Font("Arial", Font.BOLD, 18));
 		btnAccess.setBackground(Color.decode("#FAD7A0"));
 		btnAccess.setForeground(Color.decode("#6E2C00"));
 		btnAccess.setFocusPainted(false);
@@ -88,7 +88,7 @@ public class VentanaInicio extends JFrame {
 
 		btnExit = new JButton("Salir");
 		btnExit.setBounds(120, 255, 100, 30);
-		btnExit.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		btnExit.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnExit.setBackground(Color.decode("#F5EFE7"));
 		btnExit.setForeground(Color.decode("#6E2C00"));
 		btnExit.setFocusPainted(false);

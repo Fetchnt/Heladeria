@@ -47,35 +47,35 @@ public class VentanaCrepe extends JDialog {
 
 		lblPreguntaTipo = new JLabel("¿Cómo deseas tu crepe?");
 		lblPreguntaTipo.setBounds(40, 20, 300, 30);
-		lblPreguntaTipo.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		lblPreguntaTipo.setFont(new Font("Arial", Font.BOLD, 18));
 		lblPreguntaTipo.setForeground(Color.decode("#6E2C00"));
 		panel.add(lblPreguntaTipo);
 
 		cbTipoCrepe = new JComboBox<>(new String[] { "Dulce", "Salado" });
 		cbTipoCrepe.setBounds(60, 60, 230, 35);
-		cbTipoCrepe.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
+		cbTipoCrepe.setFont(new Font("Arial", Font.PLAIN, 15));
 		panel.add(cbTipoCrepe);
 
 		lblPreguntaSalsa = new JLabel("¿Qué salsa deseas?");
 		lblPreguntaSalsa.setBounds(60, 105, 230, 25);
-		lblPreguntaSalsa.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		lblPreguntaSalsa.setFont(new Font("Arial", Font.BOLD, 14));
 		lblPreguntaSalsa.setForeground(Color.decode("#6E2C00"));
 		panel.add(lblPreguntaSalsa);
 
 		cbSalsa = new JComboBox<>(new String[] { "Chocolate", "Arequipe", "Fresa", "Caramelo" });
 		cbSalsa.setBounds(60, 135, 230, 35);
-		cbSalsa.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
+		cbSalsa.setFont(new Font("Arial", Font.PLAIN, 15));
 		panel.add(cbSalsa);
 
 		lblPrecio = new JLabel("Precio: $5.000 COP");
 		lblPrecio.setBounds(60, 175, 230, 20);
-		lblPrecio.setFont(new Font("Comic Sans MS", Font.ITALIC, 13));
+		lblPrecio.setFont(new Font("Arial", Font.ITALIC, 13));
 		lblPrecio.setForeground(Color.decode("#7D6608"));
 		panel.add(lblPrecio);
 
 		btnAceptarCrepe = new JButton("Aceptar");
 		btnAceptarCrepe.setBounds(60, 210, 100, 30);
-		btnAceptarCrepe.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		btnAceptarCrepe.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAceptarCrepe.setBackground(Color.decode("#FAD7A0"));
 		btnAceptarCrepe.setForeground(Color.decode("#6E2C00"));
 		btnAceptarCrepe.setFocusPainted(false);
@@ -83,7 +83,7 @@ public class VentanaCrepe extends JDialog {
 
 		btnCancelarCrepe = new JButton("Cancelar");
 		btnCancelarCrepe.setBounds(190, 210, 100, 30);
-		btnCancelarCrepe.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+		btnCancelarCrepe.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnCancelarCrepe.setBackground(Color.decode("#F5EFE7"));
 		btnCancelarCrepe.setForeground(Color.decode("#6E2C00"));
 		btnCancelarCrepe.setFocusPainted(false);
