@@ -279,7 +279,7 @@ public class Controlador implements ActionListener {
 				mf.gethDAO().crear(dto);
 			}
 
-			if (producto.equalsIgnoreCase(prop.getProperty("h.view.textowafleee"))) {
+			if (producto.equalsIgnoreCase(prop.getProperty("h.view.textowaffles"))) {
 				WaffleDTO dto = new WaffleDTO();
 				dto.setNombreProducto(producto);
 				dto.setTipoDeWaffle(tipo);
