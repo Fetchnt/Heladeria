@@ -13,6 +13,7 @@ public class VentanaGuardado extends JFrame {
 
 	private Properties prop;
 	private JLabel dialogo;
+	private JButton botonVolver;
 
 	public VentanaGuardado() {
 		initializeComponents();
@@ -34,10 +35,19 @@ public class VentanaGuardado extends JFrame {
 		getContentPane().setBackground(Color.decode("#F5EFE7"));
 
 		dialogo = new JLabel("*La heladeria te llena de determinacion ");
-		dialogo.setBounds(100, 0, 550, 80);
+		dialogo.setBounds(75, 0, 550, 80);
 		dialogo.setForeground(Color.BLACK);
 		dialogo.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		add(dialogo);
+		
+		botonVolver = new JButton("VOLVER");
+		botonVolver.setBounds(230, 100, 100, 40);
+		botonVolver.setBackground(Color.decode("#042F6D"));
+		botonVolver.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		botonVolver.setForeground(Color.WHITE);
+		botonVolver.setFocusPainted(false);
+		botonVolver.setBorderPainted(false);
+		add(botonVolver);
 
 
 	}
@@ -45,6 +55,7 @@ public class VentanaGuardado extends JFrame {
 	public void aplicarInternacionalizacion(Properties prop) {
 		setTitle(prop.getProperty("heladeria.guardado.titulo"));
 		dialogo.setText(prop.getProperty("heladeria.guardado.texto"));
+		botonVolver.setText(prop.getProperty("heladeria.guardado.volver"));
 	}
 
 	public Properties getProp() {
@@ -54,4 +65,24 @@ public class VentanaGuardado extends JFrame {
 	public void setProp(Properties prop) {
 		this.prop = prop;
 	}
+
+	public JLabel getDialogo() {
+		return dialogo;
+	}
+
+	public void setDialogo(JLabel dialogo) {
+		this.dialogo = dialogo;
+	}
+
+	public JButton getBotonVolver() {
+		return botonVolver;
+	}
+
+	public void setBotonVolver(JButton botonVolver) {
+		this.botonVolver = botonVolver;
+	}
+
+	
+	
+	
 }
