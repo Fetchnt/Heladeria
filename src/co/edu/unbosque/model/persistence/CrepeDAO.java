@@ -9,7 +9,7 @@ import co.edu.unbosque.model.CrepeDTO;
 public class CrepeDAO implements DAO<CrepeDTO> {
 
 	private ArrayList<Crepe> listaCrepe;
-	private final String SERIAL_FILE_NAME = "Crepe.bin";
+	private final String SERIAL_FILE_NAME = "crepe.bin";
 
 	public CrepeDAO() {
 		listaCrepe = new ArrayList<>();

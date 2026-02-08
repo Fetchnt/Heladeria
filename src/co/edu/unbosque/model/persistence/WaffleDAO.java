@@ -9,7 +9,7 @@ import co.edu.unbosque.model.WaffleDTO;
 public class WaffleDAO implements DAO<WaffleDTO> {
 
 	private ArrayList<Waffle> listaWaffle;
-	private final String SERIAL_FILE_NAME = "Waffle.bin";
+	private final String SERIAL_FILE_NAME = "waffle.bin";
 
 	public WaffleDAO() {
 		listaWaffle = new ArrayList<>();
