@@ -1,6 +1,7 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
+import java.util.Properties;
 
 import co.edu.unbosque.model.Crepe;
 import co.edu.unbosque.model.CrepeDTO;
@@ -92,5 +93,12 @@ public class CrepeDAO implements DAO<CrepeDTO> {
 					+ Crepe.getCantidadProducto() + ";" + "\n");
 		}
 		return sb;
+	}
+	
+	@Override
+	public void ponerPropiedades(Properties prop) {
+		for (Crepe crepe : listaCrepe) {
+			crepe.setProp(prop);
+		}		
 	}
 }

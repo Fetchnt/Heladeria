@@ -86,11 +86,11 @@ public class VentanaSaborHelado extends JDialog {
 		btnCancelarHelado.setText(prop.getProperty("heladeria.dialog.sabor.cancel"));
 
 		cbSabores.removeAllItems();
-		cbSabores.addItem(prop.getProperty("heladeria.flavor.vanilla"));
-		cbSabores.addItem(prop.getProperty("heladeria.flavor.chocolate"));
-		cbSabores.addItem(prop.getProperty("heladeria.flavor.strawberry"));
-		cbSabores.addItem(prop.getProperty("heladeria.flavor.blackberry"));
-		cbSabores.addItem(prop.getProperty("heladeria.flavor.caramel"));
+		cbSabores.addItem(prop.getProperty("h.controller.botonhelado.vainilla"));
+		cbSabores.addItem(prop.getProperty("h.controller.botonhelado.chocolate"));
+		cbSabores.addItem(prop.getProperty("h.controller.botonhelado.fresa"));
+		cbSabores.addItem(prop.getProperty("h.controller.botonhelado.mora"));
+		cbSabores.addItem(prop.getProperty("h.controller.botonhelado.oreo"));
 	}
 
 	public JComboBox<String> getCbSabores() {

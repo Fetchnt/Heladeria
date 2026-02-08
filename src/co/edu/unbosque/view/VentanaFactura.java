@@ -120,11 +120,11 @@ public class VentanaFactura extends JDialog {
 	}
 
 	public void aplicarInternacionalizacion(Properties prop) {
-		setTitle(prop.getProperty("heladeria.dialog.factura.title"));
+		setTitle(prop.getProperty("heladeria.start.title"));
 		lblTitulo.setText(prop.getProperty("heladeria.dialog.factura.header"));
 		lblTotal.setText(prop.getProperty("heladeria.dialog.factura.total"));
 		btnConfirmarCompra.setText(prop.getProperty("heladeria.dialog.factura.confirm"));
-		btnCancelar.setText(prop.getProperty("heladeria.dialog.factura.cancel"));
+		btnCancelar.setText(prop.getProperty("heladeria.dialog.sabor.cancel"));
 
 		modeloFactura.setColumnIdentifiers(new Object[] { prop.getProperty("heladeria.factura.col.producto"),
 				prop.getProperty("heladeria.factura.col.tipo"), prop.getProperty("heladeria.factura.col.detalle"),

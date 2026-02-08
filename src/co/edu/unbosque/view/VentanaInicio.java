@@ -68,11 +68,11 @@ public class VentanaInicio extends JFrame {
 		panelOptions.add(lWelcome);
 
 		lRoleHint = new JLabel("Seleccione el idioma:");
-		lRoleHint.setBounds(30, 70, 200, 22);
+		lRoleHint.setBounds(30, 70, 200, 28);
 		lRoleHint.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
 		panelOptions.add(lRoleHint);
 
-		cbLanguage = new JComboBox<>(new String[] { "Español", "English" });
+		cbLanguage = new JComboBox<>(new String[] { "Español", "English", "Francais"});
 		cbLanguage.setBounds(30, 110, 280, 35);
 		cbLanguage.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
 		panelOptions.add(cbLanguage);
@@ -108,7 +108,7 @@ public class VentanaInicio extends JFrame {
 		lRoleHint.setText(prop.getProperty("heladeria.start.role"));
 		btnAccess.setText(prop.getProperty("heladeria.start.continue"));
 		btnExit.setText(prop.getProperty("heladeria.start.exit"));
-
+		lTitle.setText(prop.getProperty("heladeria.start.title"));
 	}
 
 	public Properties getProp() {

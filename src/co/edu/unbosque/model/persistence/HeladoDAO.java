@@ -1,6 +1,7 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
+import java.util.Properties;
 
 import co.edu.unbosque.model.Helado;
 import co.edu.unbosque.model.HeladoDTO;
@@ -92,6 +93,13 @@ public class HeladoDAO implements DAO<HeladoDTO> {
 					+ Helado.getCantidadProducto() + ";" + "\n");
 		}
 		return sb;
+	}
+	
+	@Override
+	public void ponerPropiedades(Properties prop) {
+		for (Helado helado : listaHelado) {
+			helado.setProp(prop);
+		}
 	}
 
 }

@@ -11,6 +11,9 @@ public class ViewFacade {
 	private VentanaSaborHelado vHelado;
 	private VentanaWaffle vWaffle;
 
+	public ViewFacade() {
+	}
+
 	public ViewFacade(Properties prop) {
 		vCrepe = new VentanaCrepe(prop);
 		vFactura = new VentanaFactura(prop);
@@ -22,7 +25,12 @@ public class ViewFacade {
 	}
 
 	public void cargarPropiedades(Properties prop) {
-
+		vCrepe.aplicarInternacionalizacion(prop);
+		vFactura.aplicarInternacionalizacion(prop);
+		vInicio.aplicarInternacionalizacion(prop);
+		vPrincipal.aplicarInternacionalizacion(prop);
+		vHelado.aplicarInternacionalizacion(prop);
+		vWaffle.aplicarInternacionalizacion(prop);
 	}
 
 	public VentanaInicio getvInicio() {
@@ -73,5 +81,4 @@ public class ViewFacade {
 		this.vFactura = vFactura;
 	}
 
-	
 }

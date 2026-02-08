@@ -1,6 +1,7 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
+import java.util.Properties;
 
 import co.edu.unbosque.model.Waffle;
 import co.edu.unbosque.model.WaffleDTO;
@@ -93,5 +94,14 @@ public class WaffleDAO implements DAO<WaffleDTO> {
 		}
 		return sb;
 	}
-
+	
+	@Override
+	public void ponerPropiedades(Properties prop) {
+		
+		for (Waffle waffle : listaWaffle) {
+			waffle.setProp(prop);
+		}
+		
+	}
+	
 }

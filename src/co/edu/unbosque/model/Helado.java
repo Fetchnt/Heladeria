@@ -1,5 +1,7 @@
 package co.edu.unbosque.model;
 
+import java.util.Properties;
+
 public class Helado extends Producto {
 
 	/**
@@ -7,6 +9,7 @@ public class Helado extends Producto {
 	 */
 	private static final long serialVersionUID = 8606686925984464450L;
 	private String saborBolas;
+	private Properties prop;
 
 //	private String salsa;
 //	private char estaEnVasoConoOPaleta;
@@ -39,9 +42,18 @@ public class Helado extends Producto {
 		this.saborBolas = saborBolas;
 	}
 
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+	}
+
 	@Override
 	public String toString() {
-		return super.toString() + "\n - Sabor de las bolas: " + saborBolas + "\n - Cantidad de bolas: " + "\n======================================";
+		return super.toString() + prop.getProperty("h.model.crepe.saborbolas") + saborBolas
+				+ prop.getProperty("h.model.crepe.cantidadbolas") + "\n======================================";
 	}
 
 }

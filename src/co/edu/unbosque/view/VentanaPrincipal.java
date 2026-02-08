@@ -55,7 +55,7 @@ public class VentanaPrincipal extends JFrame {
 		textoHelado = new JLabel("Helado");
 		textoHelado.setBounds(115, 430, 200, 100);
 		textoHelado.setForeground(Color.BLACK);
-		textoHelado.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+		textoHelado.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
 		add(textoHelado);
 
 		ImageIcon iconoOriginalw = new ImageIcon(getClass().getResource("waffles.jpg"));
@@ -69,7 +69,7 @@ public class VentanaPrincipal extends JFrame {
 		textoWaffles = new JLabel("Waffles");
 		textoWaffles.setBounds(355, 430, 200, 100);
 		textoWaffles.setForeground(Color.BLACK);
-		textoWaffles.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+		textoWaffles.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
 		add(textoWaffles);
 
 		ImageIcon iconoOriginalc = new ImageIcon(getClass().getResource("creps.jpg"));
@@ -83,7 +83,7 @@ public class VentanaPrincipal extends JFrame {
 		textoCrepes = new JLabel("Crepes");
 		textoCrepes.setBounds(620, 430, 200, 100);
 		textoCrepes.setForeground(Color.BLACK);
-		textoCrepes.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+		textoCrepes.setFont(new Font("Comic Sans MS", Font.BOLD, 33));
 		add(textoCrepes);
 
 		panelGris = new JPanel();
@@ -111,7 +111,7 @@ public class VentanaPrincipal extends JFrame {
 		botonPollo.setBounds(760, 170, 80, 30);
 		botonPollo.setBackground(Color.RED);
 		botonPollo.setForeground(Color.YELLOW);
-		botonPollo.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		botonPollo.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
 		botonPollo.setFocusPainted(false);
 		botonPollo.setBorderPainted(false);
 		add(botonPollo);
@@ -120,7 +120,14 @@ public class VentanaPrincipal extends JFrame {
 
 	public void aplicarInternacionalizacion(Properties prop) {
 		setTitle(prop.getProperty("heladeria.start.title"));
-
+		textoHelado.setText(prop.getProperty("h.view.textohelado"));
+		textoWaffles.setText(prop.getProperty("h.view.textowaffles"));
+		textoCrepes.setText(prop.getProperty("h.view.textocrepes"));
+		textoInicio.setText(prop.getProperty("h.view.seleccionproducto"));
+		botonVolver.setText(prop.getProperty("h.view.botonvolver"));
+		botonPollo.setText(prop.getProperty("h.view.pollo"));
+		
+		
 	}
 
 	public Properties getProp() {

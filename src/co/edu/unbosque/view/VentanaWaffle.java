@@ -78,15 +78,15 @@ public class VentanaWaffle extends JDialog {
 	}
 
 	public void aplicarInternacionalizacion(Properties prop) {
-		setTitle(prop.getProperty("heladeria.dialog.waffle.title"));
+		setTitle(prop.getProperty("heladeria.start.title"));
 		lblPregunta.setText(prop.getProperty("heladeria.dialog.waffle.question"));
 		lblPrecio.setText(prop.getProperty("heladeria.dialog.waffle.price"));
-		btnAceptarWaffle.setText(prop.getProperty("heladeria.dialog.waffle.accept"));
-		btnCancelarWaffle.setText(prop.getProperty("heladeria.dialog.waffle.cancel"));
+		btnAceptarWaffle.setText(prop.getProperty("heladeria.dialog.sabor.accept"));
+		btnCancelarWaffle.setText(prop.getProperty("heladeria.dialog.sabor.cancel"));
 
 		cbTipoWaffle.removeAllItems();
-		cbTipoWaffle.addItem(prop.getProperty("heladeria.waffle.sweet"));
-		cbTipoWaffle.addItem(prop.getProperty("heladeria.waffle.salty"));
+		cbTipoWaffle.addItem(prop.getProperty("heladeria.crepe.sweet"));
+		cbTipoWaffle.addItem(prop.getProperty("heladeria.crepe.salty"));
 	}
 
 	public JComboBox<String> getCbTipoWaffle() {

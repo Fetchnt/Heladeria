@@ -1,5 +1,7 @@
 package co.edu.unbosque.model;
 
+import java.util.Properties;
+
 public class Crepe extends Producto {
 
 	/**
@@ -9,6 +11,7 @@ public class Crepe extends Producto {
 
 	private String tipoDeCrepe; // dulce o salado
 	private String salsa; // ahi miramos
+	private Properties prop;
 
 	public Crepe() {
 		super();
@@ -47,10 +50,18 @@ public class Crepe extends Producto {
 		this.salsa = salsa;
 	}
 
+	public Properties getProp() {
+		return prop;
+	}
+
+	public void setProp(Properties prop) {
+		this.prop = prop;
+	}
+
 	@Override
 	public String toString() {
-		return super.toString() + "\n - Tipo de crepe: " + tipoDeCrepe + "\n Salsa: " + salsa
-				+ "\n======================================";
+		return super.toString() + prop.getProperty("h.model.crepe.tipodecrepe") + tipoDeCrepe
+				+ prop.getProperty("h.model.crepe.salsa") + salsa + "\n======================================";
 	}
 
 }

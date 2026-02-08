@@ -91,22 +91,22 @@ public class VentanaCrepe extends JDialog {
 	}
 
 	public void aplicarInternacionalizacion(Properties prop) {
-		setTitle(prop.getProperty("heladeria.dialog.crepe.title"));
+		setTitle(prop.getProperty("heladeria.start.title"));
 		lblPreguntaTipo.setText(prop.getProperty("heladeria.dialog.crepe.type"));
 		lblPreguntaSalsa.setText(prop.getProperty("heladeria.dialog.crepe.sauce"));
 		lblPrecio.setText(prop.getProperty("heladeria.dialog.crepe.price"));
-		btnAceptarCrepe.setText(prop.getProperty("heladeria.dialog.crepe.accept"));
-		btnCancelarCrepe.setText(prop.getProperty("heladeria.dialog.crepe.cancel"));
+		btnAceptarCrepe.setText(prop.getProperty("heladeria.dialog.sabor.accept"));
+		btnCancelarCrepe.setText(prop.getProperty("heladeria.dialog.sabor.cancel"));
 
 		cbTipoCrepe.removeAllItems();
 		cbTipoCrepe.addItem(prop.getProperty("heladeria.crepe.sweet"));
 		cbTipoCrepe.addItem(prop.getProperty("heladeria.crepe.salty"));
 
 		cbSalsa.removeAllItems();
-		cbSalsa.addItem(prop.getProperty("heladeria.sauce.chocolate"));
-		cbSalsa.addItem(prop.getProperty("heladeria.sauce.caramel"));
-		cbSalsa.addItem(prop.getProperty("heladeria.sauce.strawberry"));
-		cbSalsa.addItem(prop.getProperty("heladeria.sauce.arequipe"));
+		cbSalsa.addItem(prop.getProperty("h.controller.botonhelado.chocolate"));
+		cbSalsa.addItem(prop.getProperty("h.controller.botonhelado.caramelo"));
+		cbSalsa.addItem(prop.getProperty("h.controller.botonhelado.fresa"));
+		cbSalsa.addItem(prop.getProperty("h.controller.botonhelado.arequipe"));
 	}
 
 	public JComboBox<String> getCbTipoCrepe() {

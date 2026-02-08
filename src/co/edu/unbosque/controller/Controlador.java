@@ -2,6 +2,7 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 
@@ -20,18 +21,13 @@ public class Controlador implements ActionListener {
 	private ViewFacade vf;
 	private ModelFacade mf;
 	private Properties prop;
-	private HeladoDAO heladoDAO;
-	private WaffleDAO waffleDAO;
-	private CrepeDAO crepeDAO;
 
 	public Controlador() {
-		prop = FileHandler.cargarArchivoPropiedades("esp.properties");
+		prop = FileHandler.cargarArchivoPropiedades("eng.properties");
 		mf = new ModelFacade();
 		vf = new ViewFacade(prop);
 		mf.escribirArchivoDeTexto();
-		heladoDAO = new HeladoDAO();
-		waffleDAO = new WaffleDAO();
-		crepeDAO = new CrepeDAO();
+
 	}
 
 	public void asignarListeners() {
@@ -83,8 +79,10 @@ public class Controlador implements ActionListener {
 	}
 
 	public void run() {
-		vf.getvInicio().setVisible(true);
+		mf.cargarPropiedades(prop);
 		vf.cargarPropiedades(prop);
+
+		vf.getvInicio().setVisible(true);
 		asignarListeners();
 
 	}
@@ -102,6 +100,17 @@ public class Controlador implements ActionListener {
 
 		case "boton_acceso": {
 			vf.getvInicio().dispose();
+			if (vf.getvInicio().getCbLanguage().getSelectedItem().equals("Español")) {
+				prop = FileHandler.cargarArchivoPropiedades("esp.properties");
+			} else if (vf.getvInicio().getCbLanguage().getSelectedItem().equals("English")) {
+				prop = FileHandler.cargarArchivoPropiedades("eng.properties");
+			} else if (vf.getvInicio().getCbLanguage().getSelectedItem().equals("Francais")) {
+				prop = FileHandler.cargarArchivoPropiedades("fr.properties");
+			} 
+
+			vf.cargarPropiedades(prop);
+			mf.cargarPropiedades(prop);
+
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
@@ -114,25 +123,30 @@ public class Controlador implements ActionListener {
 
 		case "boton_aceptar_helado": {
 			vf.getvHelado().dispose();
-			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Chocolate")) {
-				vf.getvFactura().getTextoProducto().setText("Helado");
-				vf.getvFactura().getTextoTipo().setText("Chocolate");
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString()
+					.equals(prop.getProperty("h.controller.botonhelado.chocolate"))) {
+				vf.getvFactura().getTextoProducto().setText(prop.getProperty("h.view.textohelados"));
+				vf.getvFactura().getTextoTipo().setText(prop.getProperty("h.controller.botonhelado.chocolate"));
 			}
-			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Vainilla")) {
-				vf.getvFactura().getTextoProducto().setText("Helado");
-				vf.getvFactura().getTextoTipo().setText("Vainilla");
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString()
+					.equals(prop.getProperty("h.controller.botonhelado.vainilla"))) {
+				vf.getvFactura().getTextoProducto().setText(prop.getProperty("h.view.textohelados"));
+				vf.getvFactura().getTextoTipo().setText(prop.getProperty("h.controller.botonhelado.vainilla"));
 			}
-			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Fresa")) {
-				vf.getvFactura().getTextoProducto().setText("Helado");
-				vf.getvFactura().getTextoTipo().setText("Fresa");
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString()
+					.equals(prop.getProperty("h.controller.botonhelado.fresa"))) {
+				vf.getvFactura().getTextoProducto().setText(prop.getProperty("h.view.textohelados"));
+				vf.getvFactura().getTextoTipo().setText(prop.getProperty("h.controller.botonhelado.fresa"));
 			}
-			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Oreo")) {
-				vf.getvFactura().getTextoProducto().setText("Helado");
-				vf.getvFactura().getTextoTipo().setText("Oreo");
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString()
+					.equals(prop.getProperty("h.controller.botonhelado.oreo"))) {
+				vf.getvFactura().getTextoProducto().setText(prop.getProperty("h.view.textohelados"));
+				vf.getvFactura().getTextoTipo().setText(prop.getProperty("h.controller.botonhelado.oreo"));
 			}
-			if (vf.getvHelado().getCbSabores().getSelectedItem().toString().equals("Mora")) {
-				vf.getvFactura().getTextoProducto().setText("Helado");
-				vf.getvFactura().getTextoTipo().setText("Mora");
+			if (vf.getvHelado().getCbSabores().getSelectedItem().toString()
+					.equals(prop.getProperty("h.controller.botonhelado.mora"))) {
+				vf.getvFactura().getTextoProducto().setText(prop.getProperty("h.view.textohelados"));
+				vf.getvFactura().getTextoTipo().setText(prop.getProperty("h.controller.botonhelado.mora"));
 			}
 
 			vf.getvFactura().getLblTotal().setText("Total: 4.000 $");
@@ -160,13 +174,15 @@ public class Controlador implements ActionListener {
 		case "boton_aceptar_waffle": {
 			vf.getvWaffle().dispose();
 
-			if (vf.getvWaffle().getCbTipoWaffle().getSelectedItem().toString().equals("Dulce")) {
-				vf.getvFactura().getTextoProducto().setText("Waffle");
-				vf.getvFactura().getTextoTipo().setText("Dulce");
+			if (vf.getvWaffle().getCbTipoWaffle().getSelectedItem().toString()
+					.equals(prop.getProperty("heladeria.crepe.sweet"))) {
+				vf.getvFactura().getTextoProducto().setText(prop.getProperty("h.view.textowaffles"));
+				vf.getvFactura().getTextoTipo().setText(prop.getProperty("heladeria.crepe.sweet"));
 			}
-			if (vf.getvWaffle().getCbTipoWaffle().getSelectedItem().toString().equals("Salado")) {
-				vf.getvFactura().getTextoProducto().setText("Waffle");
-				vf.getvFactura().getTextoTipo().setText("Salado");
+			if (vf.getvWaffle().getCbTipoWaffle().getSelectedItem().toString()
+					.equals(prop.getProperty("heladeria.crepe.salty"))) {
+				vf.getvFactura().getTextoProducto().setText(prop.getProperty("h.view.textowaffles"));
+				vf.getvFactura().getTextoTipo().setText(prop.getProperty("heladeria.crepe.salty"));
 			}
 
 			vf.getvFactura().getLblTotal().setText("Total: 6.000 $");
@@ -193,7 +209,7 @@ public class Controlador implements ActionListener {
 
 		case "boton_pollo": {
 			vf.getvPrincipal().dispose();
-			JOptionPane.showMessageDialog(null, "Esto es una heladería, no vendemos pollo 😂", "Error", 0);
+			JOptionPane.showMessageDialog(null, prop.getProperty("h.pollo.dimelo"), prop.getProperty("h.errorrrr"), 0);
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
@@ -207,26 +223,32 @@ public class Controlador implements ActionListener {
 		case "boton_aceptar_crepe": {
 			vf.getvCrepe().dispose();
 
-			if (vf.getvCrepe().getCbTipoCrepe().getSelectedItem().toString().equals("Dulce")) {
-				vf.getvFactura().getTextoProducto().setText("Crepe");
-				vf.getvFactura().getTextoTipo().setText("Dulce");
+			if (vf.getvCrepe().getCbTipoCrepe().getSelectedItem().toString()
+					.equals(prop.getProperty("heladeria.crepe.sweet"))) {
+				vf.getvFactura().getTextoProducto().setText(prop.getProperty("h.view.textocrepeeee"));
+				vf.getvFactura().getTextoTipo().setText(prop.getProperty("heladeria.crepe.sweet"));
 			}
-			if (vf.getvCrepe().getCbTipoCrepe().getSelectedItem().toString().equals("Salado")) {
-				vf.getvFactura().getTextoProducto().setText("Crepe");
-				vf.getvFactura().getTextoTipo().setText("Salado");
+			if (vf.getvCrepe().getCbTipoCrepe().getSelectedItem().toString()
+					.equals(prop.getProperty("heladeria.crepe.salty"))) {
+				vf.getvFactura().getTextoProducto().setText(prop.getProperty("h.view.textocrepeeee"));
+				vf.getvFactura().getTextoTipo().setText(prop.getProperty("heladeria.crepe.salty"));
 			}
 
-			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Chocolate")) {
-				vf.getvFactura().getTextoDetalle().setText("Chocolate");
+			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString()
+					.equals(prop.getProperty("h.controller.botonhelado.chocolate"))) {
+				vf.getvFactura().getTextoDetalle().setText(prop.getProperty("h.controller.botonhelado.chocolate"));
 			}
-			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Arequipe")) {
-				vf.getvFactura().getTextoDetalle().setText("Arequipe");
+			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString()
+					.equals(prop.getProperty("h.controller.botonhelado.arequipe"))) {
+				vf.getvFactura().getTextoDetalle().setText(prop.getProperty("h.controller.botonhelado.arequipe"));
 			}
-			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Fresa")) {
-				vf.getvFactura().getTextoDetalle().setText("Fresa");
+			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString()
+					.equals(prop.getProperty("h.controller.botonhelado.fresa"))) {
+				vf.getvFactura().getTextoDetalle().setText(prop.getProperty("h.controller.botonhelado.fresa"));
 			}
-			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString().equals("Caramelo")) {
-				vf.getvFactura().getTextoDetalle().setText("Caramelo");
+			if (vf.getvCrepe().getCbSalsa().getSelectedItem().toString()
+					.equals(prop.getProperty("h.controller.botonhelado.caramelo"))) {
+				vf.getvFactura().getTextoDetalle().setText(prop.getProperty("h.controller.botonhelado.caramelo"));
 			}
 
 			vf.getvFactura().getLblTotal().setText("Total: 5.000 $");
@@ -258,27 +280,27 @@ public class Controlador implements ActionListener {
 
 			int precio = Integer.parseInt(precioTxt.replace(".", ""));
 
-			if (producto.equalsIgnoreCase("Helado")) {
+			if (producto.equalsIgnoreCase(prop.getProperty("h.view.textohelados"))) {
 				HeladoDTO dto = new HeladoDTO();
 				dto.setNombreProducto(producto);
 				dto.setSaborBolas(tipo);
 				dto.setPrecioProducto(precio);
 				dto.setCantidadProducto(1);
 
-				heladoDAO.crear(dto);
+				mf.gethDAO().crear(dto);
 			}
 
-			if (producto.equalsIgnoreCase("Waffle")) {
+			if (producto.equalsIgnoreCase(prop.getProperty("h.view.textowafleee"))) {
 				WaffleDTO dto = new WaffleDTO();
 				dto.setNombreProducto(producto);
 				dto.setTipoDeWaffle(tipo);
 				dto.setPrecioProducto(precio);
 				dto.setCantidadProducto(1);
 
-				waffleDAO.crear(dto);
+				mf.getwDAO().crear(dto);
 			}
 
-			if (producto.equalsIgnoreCase("Crepe")) {
+			if (producto.equalsIgnoreCase(prop.getProperty("h.view.textocrepeeee"))) {
 				CrepeDTO dto = new CrepeDTO();
 				dto.setNombreProducto(producto);
 				dto.setTipoDeCrepe(tipo);
@@ -289,26 +311,30 @@ public class Controlador implements ActionListener {
 					dto.setSalsa(detalle);
 				}
 
-				crepeDAO.crear(dto);
+				mf.getcDAO().crear(dto);
 			}
 
-			String mensaje = "Compra realizada con éxito\n" + "Producto: " + producto + "\n" + "Tipo: " + tipo + "\n";
+			String mensaje = prop.getProperty("h.comprarealizadaconexito")
+					+ prop.getProperty("h.productoooo") + producto + "\n"
+					+ prop.getProperty("heladeria.factura.col.tipo") + tipo + "\n";
 
 			if (detalle != null && !detalle.isEmpty()) {
-				mensaje += "Detalle: " + detalle + "\n";
+				mensaje += prop.getProperty("heladeria.factura.col.detalle") + detalle + "\n";
 			}
 
 			mensaje += "Precio: $" + precioTxt;
 
 			vf.getvFactura().dispose();
-			JOptionPane.showMessageDialog(null, mensaje, "Compra exitosa", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, mensaje, prop.getProperty("h.comprarealizadaconexito"),
+					JOptionPane.INFORMATION_MESSAGE);
 			vf.getvInicio().setVisible(true);
 			break;
 		}
 
 		case "boton_cancelar_compra": {
 			vf.getvFactura().dispose();
-			JOptionPane.showMessageDialog(null, "Compra cancelada", "Compra  cancelada", 1);
+			JOptionPane.showMessageDialog(null, prop.getProperty("h.canceocaeiae"), prop.getProperty("h.canceocaeiae"),
+					1);
 			vf.getvInicio().setVisible(true);
 		}
 
