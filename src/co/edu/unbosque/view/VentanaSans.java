@@ -29,7 +29,7 @@ public class VentanaSans extends JFrame {
 	}
 
 	public void initializeComponents() {
-		setTitle("Pollo");
+		setTitle("Sans");
 		setSize(900, 650);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

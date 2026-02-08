@@ -212,13 +212,15 @@ public class Controlador implements ActionListener {
 			vf.getvPrincipal().dispose();
 			// JOptionPane.showMessageDialog(null, prop.getProperty("h.pollo.dimelo"),
 			// prop.getProperty("h.errorrrr"), 0);
+			vf.getvSans().getDialogoSans().setVisible(false);
+			vf.getvSans().getDialogoSansDos().setVisible(false);
 			vf.getvSans().setVisible(true);
 			break;
 		}
 
 		case "boton_sans": {
-			vf.getvSans().getBotonSans();
-
+			vf.getvSans().getDialogoSans().setVisible(true);
+			vf.getvSans().getDialogoSansDos().setVisible(true);
 			break;
 		}
 
