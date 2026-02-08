@@ -269,15 +269,14 @@ public class Controlador implements ActionListener {
 			String precioTxt = vf.getvFactura().getTextoPrecio().getText();
 
 			int precio = Integer.parseInt(precioTxt.replace(".", ""));
-
-			if (producto.equalsIgnoreCase(prop.getProperty("h.view.textohelados"))) {
-				HeladoDTO dto = new HeladoDTO();
+			if (producto.equalsIgnoreCase(prop.getProperty("h.view.textowaffles"))) {
+				WaffleDTO dto = new WaffleDTO();
 				dto.setNombreProducto(producto);
-				dto.setSaborBolas(tipo);
+				dto.setTipoDeWaffle(tipo);
 				dto.setPrecioProducto(precio);
 				dto.setCantidadProducto(1);
 
-				mf.gethDAO().crear(dto);
+				mf.getwDAO().crear(dto);
 			}
 
 			if (producto.equalsIgnoreCase(prop.getProperty("h.view.textowafleee"))) {

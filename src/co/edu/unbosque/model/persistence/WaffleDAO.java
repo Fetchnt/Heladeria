@@ -18,10 +18,11 @@ public class WaffleDAO implements DAO<WaffleDTO> {
 
 	@Override
 	public void crear(WaffleDTO newData) {
-		Waffle entity = DataMapper.convertirWaffleDTOaWaffle(newData);
-		listaWaffle.add(entity);
-		escribirArchivoSerializado();
+	    Waffle entity = DataMapper.convertirWaffleDTOaWaffle(newData);
+	    listaWaffle.add(entity);
+	    escribirArchivoSerializado();
 	}
+
 
 	private String contenido;
 	private int i;
