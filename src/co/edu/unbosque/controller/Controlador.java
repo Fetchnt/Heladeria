@@ -319,7 +319,7 @@ public class Controlador implements ActionListener {
 			break;
 		}
 
-		case "boton_cancelar_compra": {
+		case "boton_cancelar_compra": {//
 			vf.getvFactura().dispose();
 			JOptionPane.showMessageDialog(null, prop.getProperty("h.canceocaeiae"), prop.getProperty("h.canceocaeiae"),
 					1);
