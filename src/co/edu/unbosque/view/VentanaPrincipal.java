@@ -35,7 +35,7 @@ public class VentanaPrincipal extends JFrame {
 		setVisible(false);
 	}
 
-	private void initializeComponents() {
+	public void initializeComponents() {
 		setTitle("Ventana principal");
 		setSize(900, 650);
 		setLocationRelativeTo(null);

@@ -32,7 +32,7 @@ public class VentanaCrepe extends JDialog {
 		setVisible(false);
 	}
 
-	private void initializeComponents() {
+	public void initializeComponents() {
 		setTitle("Seleccionar crepe");
 		setSize(360, 300);
 		setLocationRelativeTo(null);

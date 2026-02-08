@@ -2,18 +2,13 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.util.Properties;
 import javax.swing.JOptionPane;
-
 import co.edu.unbosque.model.CrepeDTO;
 import co.edu.unbosque.model.HeladoDTO;
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.WaffleDTO;
-import co.edu.unbosque.model.persistence.CrepeDAO;
 import co.edu.unbosque.model.persistence.FileHandler;
-import co.edu.unbosque.model.persistence.HeladoDAO;
-import co.edu.unbosque.model.persistence.WaffleDAO;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
@@ -76,6 +71,12 @@ public class Controlador implements ActionListener {
 		vf.getvFactura().getBtnConfirmarCompra().addActionListener(this);
 		vf.getvFactura().getBtnConfirmarCompra().setActionCommand("boton_comprar");
 
+		vf.getvSans().getBotonSans().addActionListener(this);
+		vf.getvSans().getBotonSans().setActionCommand("boton_sans");
+
+		vf.getvSans().getBotonVolver().addActionListener(this);
+		vf.getvSans().getBotonVolver().setActionCommand("boton_volver_sans");
+
 	}
 
 	public void run() {
@@ -106,7 +107,7 @@ public class Controlador implements ActionListener {
 				prop = FileHandler.cargarArchivoPropiedades("eng.properties");
 			} else if (vf.getvInicio().getCbLanguage().getSelectedItem().equals("Francais")) {
 				prop = FileHandler.cargarArchivoPropiedades("fr.properties");
-			} 
+			}
 
 			vf.cargarPropiedades(prop);
 			mf.cargarPropiedades(prop);
@@ -209,7 +210,20 @@ public class Controlador implements ActionListener {
 
 		case "boton_pollo": {
 			vf.getvPrincipal().dispose();
-			JOptionPane.showMessageDialog(null, prop.getProperty("h.pollo.dimelo"), prop.getProperty("h.errorrrr"), 0);
+			// JOptionPane.showMessageDialog(null, prop.getProperty("h.pollo.dimelo"),
+			// prop.getProperty("h.errorrrr"), 0);
+			vf.getvSans().setVisible(true);
+			break;
+		}
+
+		case "boton_sans": {
+			vf.getvSans().getBotonSans();
+
+			break;
+		}
+
+		case "boton_volver_sans": {
+			vf.getvSans().dispose();
 			vf.getvPrincipal().setVisible(true);
 			break;
 		}
@@ -314,9 +328,8 @@ public class Controlador implements ActionListener {
 				mf.getcDAO().crear(dto);
 			}
 
-			String mensaje = prop.getProperty("h.comprarealizadaconexito")
-					+ prop.getProperty("h.productoooo") + producto + "\n"
-					+ prop.getProperty("heladeria.factura.col.tipo") + tipo + "\n";
+			String mensaje = prop.getProperty("h.comprarealizadaconexito") + prop.getProperty("h.productoooo")
+					+ producto + "\n" + prop.getProperty("heladeria.factura.col.tipo") + tipo + "\n";
 
 			if (detalle != null && !detalle.isEmpty()) {
 				mensaje += prop.getProperty("heladeria.factura.col.detalle") + detalle + "\n";

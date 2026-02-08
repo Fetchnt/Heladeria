@@ -34,7 +34,7 @@ public class VentanaInicio extends JFrame {
 		setVisible(false);
 	}
 
-	private void initializeComponents() {
+	public void initializeComponents() {
 		setTitle("Heladaria - Inicio");
 		setSize(900, 650);
 		setLocationRelativeTo(null);

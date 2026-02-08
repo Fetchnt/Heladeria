@@ -30,7 +30,7 @@ public class VentanaSaborHelado extends JDialog {
 		setVisible(false);
 	}
 
-	private void initializeComponents() {
+	public void initializeComponents() {
 		setTitle("Seleccionar sabor");
 		setSize(360, 220);
 		setLocationRelativeTo(null);

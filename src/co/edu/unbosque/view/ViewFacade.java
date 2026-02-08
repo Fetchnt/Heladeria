@@ -10,6 +10,7 @@ public class ViewFacade {
 	private VentanaPrincipal vPrincipal;
 	private VentanaSaborHelado vHelado;
 	private VentanaWaffle vWaffle;
+	private VentanaSans vSans;
 
 	public ViewFacade() {
 	}
@@ -21,6 +22,7 @@ public class ViewFacade {
 		vPrincipal = new VentanaPrincipal(prop);
 		vHelado = new VentanaSaborHelado(prop);
 		vWaffle = new VentanaWaffle(prop);
+		vSans = new VentanaSans(prop);
 
 	}
 
@@ -79,6 +81,14 @@ public class ViewFacade {
 
 	public void setvFactura(VentanaFactura vFactura) {
 		this.vFactura = vFactura;
+	}
+
+	public VentanaSans getvSans() {
+		return vSans;
+	}
+
+	public void setvSans(VentanaSans vSans) {
+		this.vSans = vSans;
 	}
 
 }

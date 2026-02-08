@@ -37,7 +37,7 @@ public class VentanaFactura extends JDialog {
 		setVisible(false);
 	}
 
-	private void initializeComponents() {
+	public void initializeComponents() {
 		setTitle("Factura");
 		setSize(520, 460);
 		setLocationRelativeTo(null);
